@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="clases creadas" />
+    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="clases creadas">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/controladorRegistro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionUsuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Prueba.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Login.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -57,6 +69,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\persistencia" />
       <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\aplicacion" />
       <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio" />
     </key>
@@ -95,7 +108,11 @@
       <workItem from="1664303157116" duration="2696000" />
       <workItem from="1664410474822" duration="32000" />
       <workItem from="1664825997954" duration="3360000" />
-      <workItem from="1664840844862" duration="666000" />
+      <workItem from="1664840844862" duration="861000" />
+      <workItem from="1665055268354" duration="214000" />
+      <workItem from="1665069222210" duration="1257000" />
+      <workItem from="1665070497194" duration="5229000" />
+      <workItem from="1665094836745" duration="3940000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <created>1664841291578</created>
@@ -104,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664841291578</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="clases creadas">
+      <created>1664841541589</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664841541589</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

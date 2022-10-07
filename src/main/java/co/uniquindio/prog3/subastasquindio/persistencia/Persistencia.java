@@ -1,23 +1,16 @@
 package co.uniquindio.prog3.subastasquindio.persistencia;
+
+import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionUsuario;
 import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
 import co.uniquindio.prog3.subastasquindio.modelo.Usuario;
 
-import java.beans.XMLEncoder;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 public class Persistencia {
-    public static final String RUTA_ARCHIVO_USUARIOS = "src/resources/archivoUsuarios.txt";
-    public static final String RUTA_ARCHIVO_LOG = "src/resources/BancoLog.txt";
+    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/archivoUsuarios.txt";
+    public static final String RUTA_ARCHIVO_LOG = "src/resources/SubastasLog.txt";
     public static final String RUTA_ARCHIVO_OBJETOS = "src/resources/archivoObjetos.txt";
     public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/resources/model.dat";
     public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/resources/model.xml";
@@ -58,7 +51,7 @@ public class Persistencia {
      * @param listaUsuarios
      * @throws IOException
      */
-    public static void guardarClientes(ArrayList<Usuario> listaUsuarios) throws IOException {
+    public static void guardarUsuarios(ArrayList<Usuario> listaUsuarios) throws IOException {
         // TODO Auto-generated method stub
         String contenido = "";
 
@@ -105,17 +98,17 @@ public class Persistencia {
     }
 
 
-    public static boolean iniciarSesion(String correo, String contrasena) throws FileNotFoundException, IOException, UsuarioExcepcion {
+    public static boolean iniciarSesion(String correo, String contrasena) throws IOException, ExcepcionUsuario {
 
         if(validarUsuario(correo,contrasena)) {
             return true;
         }else {
-            throw new UsuarioExcepcion("Usuario no existe");
+            throw new ExcepcionUsuario("Usuario no existe");
         }
 
     }
 
-    private static boolean validarUsuario(String correo, String contrasena) throws FileNotFoundException, IOException
+    private static boolean validarUsuario(String correo, String contrasena) throws IOException
     {
         ArrayList<Usuario> usuarios = Persistencia.cargarUsuarios();
 
@@ -183,7 +176,7 @@ public class Persistencia {
         SubastasQuindio subastasQuindio = null;
 
         try {
-            subastasQuindio = (SubastasQuindio) ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_BANCO_XML);
+            subastasQuindio = (SubastasQuindio) ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
