@@ -5,4 +5,6 @@ public class ExcepcionUsuario extends Exception {
         super(mensaje);
     }
 
+    public ExcepcionUsuario() {
+    }
 }

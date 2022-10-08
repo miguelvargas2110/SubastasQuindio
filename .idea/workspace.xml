@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="clases creadas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/controladorRegistro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Prueba.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Register.fxml" afterDir="false" />
+    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Login and Register">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionArrobaEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionContraseña.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionFechaAnuncioInvalida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionLimitePujas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionNombreUsuarioInvalido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionPujaNegativa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionPuntoEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionUsuarioNoRegistrado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/OperacionesCrud.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/excepciones/ExcepcionUsuario.java" afterDir="false" />
     </list>
+    <list id="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" name="Changes by marth" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +35,7 @@
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,30 +64,37 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/IdeaProjects/File&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/IdeaProjects/SubastasQuindio/src/main/java/co/uniquindio/prog3/subastasquindio/vistas&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\vistas" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\persistencia" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\aplicacion" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio" />
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java" />
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main" />
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src" />
+      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="co.uniquindio.prog3.subastasquindio" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.co.uniquindio.prog3.subastasquindio.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.HelloApplication" />
+      <option name="MAIN_CLASS_NAME" value="aplicacion.HelloApplication" />
       <module name="SubastasQuindio.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.controladores.*" />
+          <option name="PATTERN" value="controladores.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,8 +102,56 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="co.uniquindio.prog3.subastasquindio.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.HelloApplication" />
+      <module name="SubastasQuindio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
+      <module name="SubastasQuindio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
+      <module name="SubastasQuindio.main" />
+      <option name="VM_PARAMETERS" value="--module-path /path/to/JavaFX/lib --add-modules=javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.HelloApplication" />
+      <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
+      <item itemvalue="Application.HelloApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.HelloApplication" />
+        <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
+        <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -113,6 +172,9 @@
       <workItem from="1665069222210" duration="1257000" />
       <workItem from="1665070497194" duration="5229000" />
       <workItem from="1665094836745" duration="3940000" />
+      <workItem from="1665167523328" duration="6596000" />
+      <workItem from="1665254615909" duration="2244000" />
+      <workItem from="1665258014178" duration="1182000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <created>1664841291578</created>
@@ -128,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664841541589</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Login and Register">
+      <created>1665167567287</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665167567287</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +216,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="clases creadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="clases creadas" />
+    <MESSAGE value="Login and Register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and Register" />
   </component>
 </project>
