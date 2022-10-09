@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="265.0" prefWidth="368.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.uniquindio.prog3.subastasquindio.controladores.HelloController">
+<VBox alignment="CENTER" prefHeight="265.0" prefWidth="368.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.uniquindio.prog3.subastasquindio.controladores.ControladorLogin">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -23,5 +23,5 @@
          <PasswordField fx:id="contrasenaUsuario" prefHeight="26.0" prefWidth="357.0" promptText="Contraseña" />
       </children>
    </HBox>
-    <Button onAction="#onHelloButtonClick" prefHeight="26.0" prefWidth="357.0" text="Login" />
+    <Button onAction="#onActionLogin" prefHeight="26.0" prefWidth="357.0" text="Login" />
 </VBox>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6725521669341894" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.uniquindio.prog3.subastasquindio.controladores.ControladorAnuncios">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TextField layoutX="14.0" layoutY="30.0" prefHeight="25.0" prefWidth="250.0" promptText="Nombre del Anuncio" />
+            <ImageView fitHeight="193.0" fitWidth="310.0" layoutX="276.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="395.0" layoutY="217.0" mnemonicParsing="false" text="Subir Imagen" />
+            <TextArea layoutX="14.0" layoutY="140.0" prefHeight="60.0" prefWidth="250.0" promptText="Descripcion del Producto" />
+            <DatePicker layoutX="14.0" layoutY="230.0" prefWidth="250.0" promptText="Fecha de Finalizacion" />
+            <TextField layoutX="14.0" layoutY="285.0" prefWidth="250.0" promptText="Valor Inicial" />
+            <Button layoutX="290.0" layoutY="285.0" mnemonicParsing="false" prefWidth="66.0" text="Publicar" />
+            <Button layoutX="365.0" layoutY="285.0" mnemonicParsing="false" prefWidth="66.0" text="Editar" />
+            <Button layoutX="440.0" layoutY="285.0" mnemonicParsing="false" prefWidth="66.0" text="Eliminar" />
+            <Button layoutX="515.0" layoutY="284.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
+            <ChoiceBox fx:id="cbTipoProducto" layoutX="14.0" layoutY="85.0" prefHeight="26.0" prefWidth="250.0" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TableView prefHeight="171.0" prefWidth="600.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

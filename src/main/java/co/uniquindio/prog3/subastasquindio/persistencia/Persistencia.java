@@ -1,11 +1,13 @@
 package co.uniquindio.prog3.subastasquindio.persistencia;
 
 import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionUsuario;
+import co.uniquindio.prog3.subastasquindio.modelo.Anunciante;
 import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
 import co.uniquindio.prog3.subastasquindio.modelo.Usuario;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.AnnotatedArrayType;
 import java.util.ArrayList;
 
 public class Persistencia {
@@ -57,7 +59,12 @@ public class Persistencia {
 
         for(Usuario usuario:listaUsuarios)
         {
-            contenido+= usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+"\n";
+            if(usuario.getAnunciante() == null){
+                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+"," + usuario.getComprador() + "\n";
+            }else{
+                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+"," + usuario.getAnunciante() + "\n";
+            }
+
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_USUARIOS, contenido, false);
 

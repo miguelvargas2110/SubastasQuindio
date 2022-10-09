@@ -1,4 +1,4 @@
-module co.uniquindio.prog3.subastasquindio.aplicacion {
+module co.uniquindio.prog3.subastasquindio {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.logging;
@@ -8,4 +8,7 @@ module co.uniquindio.prog3.subastasquindio.aplicacion {
     opens co.uniquindio.prog3.subastasquindio to javafx.fxml;
     exports co.uniquindio.prog3.subastasquindio.controladores;
     opens co.uniquindio.prog3.subastasquindio.controladores to javafx.fxml;
+
+
+
 }

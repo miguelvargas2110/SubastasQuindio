@@ -10,13 +10,49 @@ public class Usuario implements Serializable {
     String nombre;
     String contrasena;
 
+    Anunciante anunciante;
+
+    Comprador comprador;
+
     public Usuario() {
     }
 
-    public Usuario(String nombre, String correo, String contrasena){
+    public Usuario(String nombre, String correo, String contrasena, Anunciante anunciante){
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.anunciante = anunciante;
+    }
+
+    public Usuario(String nombre, String correo, String contrasena, Comprador comprador){
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.comprador = comprador;
+    }
+
+    public static ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public static void setUsuarios(ArrayList<Usuario> usuarios) {
+        Usuario.usuarios = usuarios;
+    }
+
+    public Anunciante getAnunciante() {
+        return anunciante;
+    }
+
+    public void setAnunciante(Anunciante anunciante) {
+        this.anunciante = anunciante;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
     }
 
     public String getCorreo() {

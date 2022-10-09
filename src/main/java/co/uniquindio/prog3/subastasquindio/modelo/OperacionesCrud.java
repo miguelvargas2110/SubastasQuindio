@@ -4,5 +4,5 @@ public interface OperacionesCrud {
     public void guardarEnCrud();
     public void editarEnCrud();
     public void eliminarEnCrud();
-    public void crearEnCrud();
+    public void limpiarEnCrud();
 }
