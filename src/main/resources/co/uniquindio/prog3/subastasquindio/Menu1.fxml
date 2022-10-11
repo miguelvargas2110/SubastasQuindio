@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.uniquindio.prog3.subastasquindio.controladores.ControladorMenu1">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #00CDFF;">
+               <children>
+                  <Button layoutX="428.0" layoutY="9.0" mnemonicParsing="false" onAction="#onActionRegistro" style="-fx-background-color: #00CDFF;" text="Registrate">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="519.0" layoutY="9.0" mnemonicParsing="false" onAction="#onActionLogin" style="-fx-background-color: #00CDFF;" text="Ingresa">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
+            <TableView layoutY="41.0" prefHeight="356.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;">
+              <columns>
+                <TableColumn prefWidth="116.79998779296875" text="C1" />
+                <TableColumn prefWidth="96.0" text="C2" />
+              </columns>
+            </TableView>
+         </children></Pane>
+   </children>
+</AnchorPane>

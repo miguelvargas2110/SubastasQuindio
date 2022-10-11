@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Excepciones y Interface creadas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/Aplicacion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorAnuncios.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorPujas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorTransaccional.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorUsuarios.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Anuncios.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Pujas.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Transaccional.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Usuarios.fxml" afterDir="false" />
+    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Primera Entrega">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Menu1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/controladorRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/OperacionesCrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/OperacionesCrud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Prueba.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Register.fxml" afterDir="false" />
     </list>
     <list id="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" name="Changes by marth" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +28,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -195,6 +180,11 @@
       <workItem from="1665335498523" duration="545000" />
       <workItem from="1665336061223" duration="4519000" />
       <workItem from="1665341714720" duration="20000" />
+      <workItem from="1665341751266" duration="96000" />
+      <workItem from="1665359159047" duration="1194000" />
+      <workItem from="1665363309842" duration="2617000" />
+      <workItem from="1665520359844" duration="1049000" />
+      <workItem from="1665521570224" duration="496000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <created>1664841291578</created>
@@ -224,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665259463225</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Primera Entrega">
+      <created>1665341834120</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665341834121</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +242,7 @@
     <MESSAGE value="clases creadas" />
     <MESSAGE value="Login and Register" />
     <MESSAGE value="Excepciones y Interface creadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Excepciones y Interface creadas" />
+    <MESSAGE value="Primera Entrega" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primera Entrega" />
   </component>
 </project>

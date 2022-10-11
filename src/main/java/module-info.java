@@ -9,6 +9,4 @@ module co.uniquindio.prog3.subastasquindio {
     exports co.uniquindio.prog3.subastasquindio.controladores;
     opens co.uniquindio.prog3.subastasquindio.controladores to javafx.fxml;
 
-
-
 }
