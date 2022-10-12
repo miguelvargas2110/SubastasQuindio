@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Primera Entrega">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Menu1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/aplicacion/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorMenu1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Anuncios.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Anuncios.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Menu1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Menu1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Pujas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Pujas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Transaccional.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Transaccional.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/uniquindio/prog3/subastasquindio/Usuarios.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Usuarios.fxml" afterDir="false" />
     </list>
     <list id="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" name="Changes by marth" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,31 +60,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/IdeaProjects/SubastasQuindio/src/main/resources/co/uniquindio/prog3/subastasquindio&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/marth/IdeaProjects/SubastasQuindio/build/resources/java/main/co",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\resources\java\main\co" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\resources\java\main" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\classes\java\main\co\uniquindio\prog3\subastasquindio\vistas" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\vista" />
       <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\vistas" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\resources\java" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\resources\vistas" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio\aplicacion" />
       <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="co.uniquindio.prog3.subastasquindio" />
@@ -85,11 +96,11 @@
   </component>
   <component name="RunManager" selected="Application.Aplicacion">
     <configuration name="Aplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.Aplicacion" />
+      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion" />
       <module name="SubastasQuindio.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.*" />
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,7 +126,7 @@
       <module name="SubastasQuindio.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.*" />
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,6 +196,7 @@
       <workItem from="1665363309842" duration="2617000" />
       <workItem from="1665520359844" duration="1049000" />
       <workItem from="1665521570224" duration="496000" />
+      <workItem from="1665579253530" duration="4797000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <created>1664841291578</created>
@@ -244,5 +256,15 @@
     <MESSAGE value="Excepciones y Interface creadas" />
     <MESSAGE value="Primera Entrega" />
     <option name="LAST_COMMIT_MESSAGE" value="Primera Entrega" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

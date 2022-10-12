@@ -24,8 +24,7 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'co.uniquindio.prog3.subastasquindio'
-    mainClass = 'co.uniquindio.prog3.subastasquindio.HelloApplication'
+    mainClass = 'co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion'
 }
 
 javafx {
@@ -35,6 +34,7 @@ javafx {
 
 dependencies {
 
+    implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

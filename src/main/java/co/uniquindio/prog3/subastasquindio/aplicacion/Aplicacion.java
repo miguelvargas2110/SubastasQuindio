@@ -1,4 +1,4 @@
-package co.uniquindio.prog3.subastasquindio;
+package co.uniquindio.prog3.subastasquindio.aplicacion;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Aplicacion extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Menu1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Menu1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Menu");
         stage.setScene(scene);
@@ -18,7 +18,7 @@ public class Aplicacion extends Application {
     }
 
     public void Anuncio(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Anuncios.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Anuncios.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -31,7 +31,7 @@ public class Aplicacion extends Application {
     }
 
     public void Login(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Login.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -44,7 +44,7 @@ public class Aplicacion extends Application {
     }
 
     public void Pujas(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Pujas.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Pujas.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -57,7 +57,7 @@ public class Aplicacion extends Application {
     }
 
     public void Registro(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Register.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Register.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -70,7 +70,7 @@ public class Aplicacion extends Application {
     }
 
     public void Transaccional(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Transaccional.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Transaccional.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -83,7 +83,7 @@ public class Aplicacion extends Application {
     }
 
     public void Usuarios(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("Usuarios.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Usuarios.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -96,7 +96,6 @@ public class Aplicacion extends Application {
     }
 
     public static void main(String[] args) {
-
 
         launch();
     }
