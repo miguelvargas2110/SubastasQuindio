@@ -9,9 +9,7 @@ public class Usuario implements Serializable {
     String correo;
     String nombre;
     String contrasena;
-
     Anunciante anunciante;
-
     Comprador comprador;
 
     public Usuario() {
@@ -80,4 +78,5 @@ public class Usuario implements Serializable {
     }
 
     public static ArrayList<Usuario> getArrayListUsuarios(){return usuarios;}
+
 }

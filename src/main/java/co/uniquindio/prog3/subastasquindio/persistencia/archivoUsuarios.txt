@@ -1,2 +1,0 @@
-asdada,hkjhk,asdada,co.uniquindio.prog3.subastasquindio.modelo.Anunciante@7046af0c
-asdada,hkjhk,asdada,co.uniquindio.prog3.subastasquindio.modelo.Comprador@337a0af4

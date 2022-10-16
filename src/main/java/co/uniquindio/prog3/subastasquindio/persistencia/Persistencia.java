@@ -11,11 +11,11 @@ import java.lang.reflect.AnnotatedArrayType;
 import java.util.ArrayList;
 
 public class Persistencia {
-    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/archivoUsuarios.txt";
-    public static final String RUTA_ARCHIVO_LOG = "src/resources/SubastasLog.txt";
-    public static final String RUTA_ARCHIVO_OBJETOS = "src/resources/archivoObjetos.txt";
-    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/resources/model.dat";
-    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/resources/model.xml";
+    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/resources/flujoDatos/archivoUsuarios.txt";
+    public static final String RUTA_ARCHIVO_LOG = "src/main/resources/flujoDatos/SubastasLog.txt";
+    public static final String RUTA_ARCHIVO_OBJETOS = "src/main/resources/flujoDatos/archivoObjetos.txt";
+    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/main/resources/flujoDatos/model.dat";
+    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/main/resources/flujoDatos/model.xml";
 
 
 
@@ -60,9 +60,9 @@ public class Persistencia {
         for(Usuario usuario:listaUsuarios)
         {
             if(usuario.getAnunciante() == null){
-                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+"," + usuario.getComprador() + "\n";
+                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Comprador," + listaUsuarios.indexOf(usuario) + "\n";
             }else{
-                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+"," + usuario.getAnunciante() + "\n";
+                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante" + listaUsuarios.indexOf(usuario) + "\n";
             }
 
         }
@@ -203,14 +203,4 @@ public class Persistencia {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
-
-
-
-
 }

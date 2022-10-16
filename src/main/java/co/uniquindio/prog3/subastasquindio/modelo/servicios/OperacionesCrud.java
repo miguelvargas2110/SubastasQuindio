@@ -1,4 +1,4 @@
-package co.uniquindio.prog3.subastasquindio.modelo;
+package co.uniquindio.prog3.subastasquindio.modelo.servicios;
 
 public interface OperacionesCrud {
     public void guardarEnCrud();
