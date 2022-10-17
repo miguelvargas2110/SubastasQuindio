@@ -60,7 +60,7 @@ public class Persistencia {
 
         for(Usuario usuario:listaUsuarios)
         {
-            if(usuario.getAnunciante() == null){
+            if(usuario.getClass().getSimpleName() == "Anunciante"){
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Comprador," + listaUsuarios.indexOf(usuario) + "\n";
             }else{
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante," + listaUsuarios.indexOf(usuario) + "\n";
@@ -89,16 +89,19 @@ public class Persistencia {
         for (int i = 0; i < contenido.size(); i++)
         {
             linea = contenido.get(i);
-            Usuario usuario = new Usuario();
-            usuario.setNombre(linea.split(",")[0]);
-            usuario.setCorreo(linea.split(",")[1]);
-            usuario.setContrasena(linea.split(",")[2]);
             if(linea.split(",")[3] == "Anunciante"){
-                usuario.setAnunciante(new Anunciante());
+                Anunciante anunciante = new Anunciante();
+                anunciante.setNombre(linea.split(",")[0]);
+                anunciante.setCorreo(linea.split(",")[1]);
+                anunciante.setContrasena(linea.split(",")[2]);
+                usuarios.add(anunciante);
             }else{
-                usuario.setComprador(new Comprador());
+                Comprador comprador = new Comprador();
+                comprador.setNombre(linea.split(",")[0]);
+                comprador.setCorreo(linea.split(",")[1]);
+                comprador.setContrasena(linea.split(",")[2]);
+                usuarios.add(comprador);
             }
-            usuarios.add(usuario);
         }
         return usuarios;
     }

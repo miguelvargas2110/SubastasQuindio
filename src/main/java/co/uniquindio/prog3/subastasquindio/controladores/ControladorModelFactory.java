@@ -99,21 +99,21 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 }
 //
 //
-   public Usuario crearUsuario(String nombre, String correo, String contrasena, Anunciante anunciante) {
+   public Usuario crearAnunciante(String nombre, String correo, String contrasena) {
 
        Usuario usuario;
 
-       usuario = getSubastasQuindio().crearUsuario(nombre, correo, contrasena, anunciante);
+       usuario = getSubastasQuindio().crearAnunciante(nombre, correo, contrasena);
 
        return usuario;
 
    }
 
-    public Usuario crearUsuario(String nombre, String correo, String contrasena, Comprador comprador) {
+    public Usuario crearComprador(String nombre, String correo, String contrasena) {
 
         Usuario usuario;
 
-        usuario = getSubastasQuindio().crearUsuario(nombre, correo, contrasena, comprador);
+        usuario = getSubastasQuindio().crearComprador(nombre, correo, contrasena);
 
         return usuario;
 

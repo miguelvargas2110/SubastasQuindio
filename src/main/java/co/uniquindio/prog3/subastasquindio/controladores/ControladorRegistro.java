@@ -38,7 +38,7 @@ public class ControladorRegistro {
                     lblRegistro.setText("la sintaxis del correo es invalida, verifique que tenga el formato ´example@example.com´");
                     ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en email", 1, e.toString());
                 }
-                Usuario usuario = ControladorModelFactory.getInstance().crearUsuario(nombreUsuario.getText(), correoUsuario.getText(), contrasenaUsuario.getText(), new Anunciante());
+                Usuario usuario = ControladorModelFactory.getInstance().crearAnunciante(nombreUsuario.getText(), correoUsuario.getText(), contrasenaUsuario.getText());
                 ControladorModelFactory.getInstance().guardarUsuarioArchivo(usuario);
                 ControladorModelFactory.getInstance().guardarRegistroLog("Se ha guardado el usuario" + nombreUsuario.getText(), 1, "guardarUsuario");
             }else{
@@ -48,7 +48,7 @@ public class ControladorRegistro {
                     lblRegistro.setText("la sintaxis del correo es invalida, verifique que tenga el formato ´example@example.com´");
                     ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en email", 1, e.toString());
                 }
-                Usuario usuario = ControladorModelFactory.getInstance().crearUsuario(nombreUsuario.getText(), correoUsuario.getText(), contrasenaUsuario.getText(), new Comprador());
+                Usuario usuario = ControladorModelFactory.getInstance().crearComprador(nombreUsuario.getText(), correoUsuario.getText(), contrasenaUsuario.getText());
                 ControladorModelFactory.getInstance().guardarUsuarioArchivo(usuario);
                 ControladorModelFactory.getInstance().guardarRegistroLog("Se ha guardado el usuario" + nombreUsuario.getText(), 1, "guardarUsuario");
             }

@@ -49,19 +49,25 @@ public class SubastasQuindio implements Serializable {
 
     }
 
-    public Usuario crearUsuario(String nombre, String correo, String contrasena, Anunciante anunciante) {
+    public Anunciante crearAnunciante(String nombre, String correo, String contrasena) {
 
-        Usuario usuario = new Usuario(nombre, correo, contrasena, anunciante);
+        Anunciante anunciante = new Anunciante();
+        anunciante.setNombre(nombre);
+        anunciante.setCorreo(correo);
+        anunciante.setContrasena(contrasena);
 
-        return usuario;
+        return anunciante;
 
     }
 
-    public Usuario crearUsuario(String nombre, String correo, String contrasena, Comprador comprador) {
+    public Comprador crearComprador(String nombre, String correo, String contrasena) {
 
-        Usuario usuario = new Usuario(nombre, correo, contrasena, comprador);
+        Comprador comprador = new Comprador();
+        comprador.setNombre(nombre);
+        comprador.setCorreo(correo);
+        comprador.setContrasena(contrasena);
 
-        return usuario;
+        return comprador;
 
     }
 }
