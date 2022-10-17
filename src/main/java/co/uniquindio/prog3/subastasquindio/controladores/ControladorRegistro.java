@@ -32,7 +32,6 @@ public class ControladorRegistro {
 
         if (nombreUsuario.getText() != "" || contrasenaUsuario.getText() != "" || contrasenaUsuario.getText() != "" && !rbAnunciante.isSelected() && !rbComprador.isSelected()) {
             if(rbAnunciante.isSelected()){
-                Usuario.getArrayListUsuarios().add(new Usuario(nombreUsuario.getText(), correoUsuario.getText(), contrasenaUsuario.getText(), new Anunciante()));
                 try {
                     validarEmail(correoUsuario.getText());
                 }catch (ExcepcionEmail e){

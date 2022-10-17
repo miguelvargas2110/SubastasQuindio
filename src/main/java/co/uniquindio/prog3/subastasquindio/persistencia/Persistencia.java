@@ -2,6 +2,7 @@ package co.uniquindio.prog3.subastasquindio.persistencia;
 
 import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionUsuario;
 import co.uniquindio.prog3.subastasquindio.modelo.Anunciante;
+import co.uniquindio.prog3.subastasquindio.modelo.Comprador;
 import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
 import co.uniquindio.prog3.subastasquindio.modelo.Usuario;
 
@@ -92,6 +93,11 @@ public class Persistencia {
             usuario.setNombre(linea.split(",")[0]);
             usuario.setCorreo(linea.split(",")[1]);
             usuario.setContrasena(linea.split(",")[2]);
+            if(linea.split(",")[3] == "Anunciante"){
+                usuario.setAnunciante(new Anunciante());
+            }else{
+                usuario.setComprador(new Comprador());
+            }
             usuarios.add(usuario);
         }
         return usuarios;

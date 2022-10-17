@@ -1,8 +1,11 @@
 package co.uniquindio.prog3.subastasquindio.controladores;
 
 
+import co.uniquindio.prog3.subastasquindio.modelo.Anunciante;
+import co.uniquindio.prog3.subastasquindio.modelo.Comprador;
 import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
 
+import co.uniquindio.prog3.subastasquindio.modelo.Usuario;
 import co.uniquindio.prog3.subastasquindio.persistencia.Persistencia;
 
 import java.io.IOException;
@@ -24,15 +27,15 @@ public class ControladorModelFactory {
     }
 
     private ControladorModelFactory() {
+
         cargarDatosDesdeArchivos();
-        guardarResourceBinario();
-        cargarResourceBinario();
-        cargarResourceXML();
-        guardarResourceXML();
-        //4. Guardar y Cargar el recurso serializable XML
-        //Siempre se debe verificar si la raiz del recurso es null
-        if(subastasQuindio == null) {
+
+        if(Persistencia.cargarRecursoSubastasQuindioXML() == null) {
             System.out.println("es null");
+            guardarResourceXML();
+            cargarResourceXML();
+        }else{
+            cargarResourceXML();
             guardarResourceXML();
         }
 
@@ -65,25 +68,25 @@ public class ControladorModelFactory {
 //
     public void cargarResourceBinario() {
 
-        subastasQuindio = Persistencia.cargarRecursoBancoBinario();
+        subastasQuindio = Persistencia.cargarRecursoSubastasQuindioBinario();
     }
 //
 //
     public void guardarResourceBinario() {
 
-        Persistencia.guardarRecursoBancoBinario(subastasQuindio);
+        Persistencia.guardarRecursoSubastasQuindioBinario(subastasQuindio);
     }
 //
 //
     public void cargarResourceXML() {
 
-        subastasQuindio = Persistencia.cargarRecursoBancoXML();
+        subastasQuindio = Persistencia.cargarRecursoSubastasQuindioXML();
     }
 
 
     public void guardarResourceXML() {
 
-        Persistencia.guardarRecursoBancoXML(subastasQuindio);
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
 
 
@@ -91,22 +94,40 @@ public class ControladorModelFactory {
         return subastasQuindio;
     }
 //
-//    public void setUniversidad(Universidad universidad) {
-//        this.universidad = universidad;
-//    }
+public void setUniversidad(SubastasQuindio subastasQuindio) {
+       this.subastasQuindio = subastasQuindio;
+}
 //
 //
-//    public Estudiante crearEstudiante(String nombre, String codigo, ArrayList<Double> notas) {
-//
-//
-//        Estudiante estudiante;
-//
-//        estudiante = getUniversidad().crearEstudiante(nombre, codigo, notas);
-//
-//
-//        return estudiante;
-//
-//    }
+   public Usuario crearUsuario(String nombre, String correo, String contrasena, Anunciante anunciante) {
+
+       Usuario usuario;
+
+       usuario = getSubastasQuindio().crearUsuario(nombre, correo, contrasena, anunciante);
+
+       return usuario;
+
+   }
+
+    public Usuario crearUsuario(String nombre, String correo, String contrasena, Comprador comprador) {
+
+        Usuario usuario;
+
+        usuario = getSubastasQuindio().crearUsuario(nombre, correo, contrasena, comprador);
+
+        return usuario;
+
+    }
+
+    public void guardarUsuarioArchivo(Usuario usuario) throws IOException {
+
+        subastasQuindio.getListaUsuarios().add(usuario);
+
+        Persistencia.guardarUsuarios(subastasQuindio.getListaUsuarios());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
+
+    }
 //
 //    public Programa crearPrograma(String nombre, String documento, String modalidad){
 //        Programa programa;

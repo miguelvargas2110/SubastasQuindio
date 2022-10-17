@@ -18,10 +18,11 @@ public class ControladorLogin {
 
         try {
             iniciarSesion(correoUsuario.getText(), contrasenaUsuario.getText());
+            ControladorModelFactory.getInstance().guardarRegistroLog("El usuario con correo " + correoUsuario.getText() + " ha iniciado sesion", 1, "iniciarSesion");
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ExcepcionUsuario e) {
-            throw new RuntimeException(e);
+            ControladorModelFactory.getInstance().guardarRegistroLog("El ususario no esta registrado", 1, e.toString());
         }
     }
 }

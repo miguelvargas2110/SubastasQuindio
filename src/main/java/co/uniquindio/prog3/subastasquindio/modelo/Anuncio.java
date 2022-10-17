@@ -24,83 +24,111 @@ public class Anuncio implements Serializable {
     public Anuncio() {
     }
 
-    public TipoProducto getTipoProducto() {
-        return tipoProducto;
-    }
-
-    public void setTipoProducto(TipoProducto tipoProducto) {
-        this.tipoProducto = tipoProducto;
-    }
-
     public String getNombreProducto() {
-        return nombreProducto;
+
+        return nombreProducto.get();
+
     }
 
     public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+
+        this.nombreProducto.set(nombreProducto);
+
     }
 
     public String getDescripcion() {
-        return descripcion;
+
+        return descripcion.get();
+
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+
+        this.descripcion.set(descripcion);
+
+    }
+
+    public String getTipoProducto() {
+
+        return tipoProducto.get();
+
+    }
+
+    public void setTipoProducto(String tipoProducto) {
+
+        this.tipoProducto.set(tipoProducto);
+
     }
 
     public String getFoto() {
-        return foto;
+
+        return foto.get();
+
     }
 
     public void setFoto(String foto) {
-        this.foto = foto;
+
+        this.foto.set(foto);
+
     }
 
     public String getNombreAnunciante() {
-        return nombreAnunciante;
+
+        return nombreAnunciante.get();
+
     }
 
     public void setNombreAnunciante(String nombreAnunciante) {
-        this.nombreAnunciante = nombreAnunciante;
+
+        this.nombreAnunciante.set(nombreAnunciante);
+
     }
 
-    public Date getFechaPublicacion() {
+    public SimpleDateFormat getFechaPublicacion() {
+
         return fechaPublicacion;
+
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
+    public void setFechaPublicacion(SimpleDateFormat fechaPublicacion) {
+
         this.fechaPublicacion = fechaPublicacion;
+
     }
 
-    public Date getFechaCaducidad() {
+    public SimpleDateFormat getFechaCaducidad() {
+
         return fechaCaducidad;
+
     }
 
-    public void setFechaCaducidad(Date fechaCaducidad) {
+    public void setFechaCaducidad(SimpleDateFormat fechaCaducidad) {
+
         this.fechaCaducidad = fechaCaducidad;
+
     }
 
     public double getValorInicial() {
-        return valorInicial;
+
+        return valorInicial.get();
+
     }
 
     public void setValorInicial(double valorInicial) {
-        this.valorInicial = valorInicial;
+
+        this.valorInicial.set(valorInicial);
+
     }
 
-    public boolean isEstadoAnuncio() {
-        return estadoAnuncio;
+    public boolean getEstadoAnuncio() {
+
+        return estadoAnuncio.get();
+
     }
 
     public void setEstadoAnuncio(boolean estadoAnuncio) {
-        this.estadoAnuncio = estadoAnuncio;
-    }
 
-    public ArrayList<Puja> getListaPujas() {
-        return listaPujas;
-    }
+        this.estadoAnuncio.set(estadoAnuncio);
 
-    public void setListaPujas(ArrayList<Puja> listaPujas) {
-        this.listaPujas = listaPujas;
     }
 }
