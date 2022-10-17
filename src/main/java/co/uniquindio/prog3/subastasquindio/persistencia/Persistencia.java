@@ -17,7 +17,6 @@ public class Persistencia {
     public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/main/resources/persistencia/model.xml";
     private static final String RUTA_ARCHIVO_PROPERTIES_MODALIDADES = "src/main/resources/persistencia/tipoProducto.properties";
 
-
     public static void cargarDatosArchivos(SubastasQuindio subastasQuindio) throws FileNotFoundException, IOException {
 
 
@@ -79,6 +78,7 @@ public class Persistencia {
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
     }
+
 
 
 //	----------------------LOADS------------------------

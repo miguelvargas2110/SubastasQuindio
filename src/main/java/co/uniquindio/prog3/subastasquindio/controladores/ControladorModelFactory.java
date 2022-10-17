@@ -152,6 +152,25 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
 
     }
+
+    public void editarAnuncioArchivo (Anuncio anuncio, Anuncio anuncioMod) throws IOException {
+
+        subastasQuindio.getListaAnuncios().remove(anuncio);
+        subastasQuindio.getListaAnuncios().add(anuncioMod);
+
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
+    }
+
+    public void eliminarAnuncioArchivo (Anuncio anuncio) throws IOException {
+
+        subastasQuindio.getListaAnuncios().remove(anuncio);
+
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
+    }
 //
 //    public Programa crearPrograma(String nombre, String documento, String modalidad){
 //        Programa programa;
