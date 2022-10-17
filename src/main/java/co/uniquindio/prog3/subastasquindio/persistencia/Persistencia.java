@@ -1,10 +1,7 @@
 package co.uniquindio.prog3.subastasquindio.persistencia;
 
 import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionUsuario;
-import co.uniquindio.prog3.subastasquindio.modelo.Anunciante;
-import co.uniquindio.prog3.subastasquindio.modelo.Comprador;
-import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
-import co.uniquindio.prog3.subastasquindio.modelo.Usuario;
+import co.uniquindio.prog3.subastasquindio.modelo.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,13 +9,13 @@ import java.lang.reflect.AnnotatedArrayType;
 import java.util.ArrayList;
 
 public class Persistencia {
-    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/resources/flujoDatos/archivoUsuarios.txt";
-    public static final String RUTA_ARCHIVO_LOG = "src/main/resources/flujoDatos/SubastasLog.txt";
-    public static final String RUTA_ARCHIVO_OBJETOS = "src/main/resources/flujoDatos/archivoObjetos.txt";
-    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/main/resources/flujoDatos/model.dat";
-    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/main/resources/flujoDatos/model.xml";
-
-
+    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/resources/persistencia/archivoUsuarios.txt";
+    public static final String RUTA_ARCHIVO_ANUNCIOS = "src/main/resources/persistencia/archivoAnuncios.txt";
+    public static final String RUTA_ARCHIVO_LOG = "src/main/resources/persistencia/SubastasLog.txt";
+    public static final String RUTA_ARCHIVO_OBJETOS = "src/main/resources/persistencia/archivoObjetos.txt";
+    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/main/resources/persistencia/model.dat";
+    public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/main/resources/persistencia/model.xml";
+    private static final String RUTA_ARCHIVO_PROPERTIES_MODALIDADES = "src/main/resources/persistencia/tipoProducto.properties";
 
 
     public static void cargarDatosArchivos(SubastasQuindio subastasQuindio) throws FileNotFoundException, IOException {
@@ -60,7 +57,7 @@ public class Persistencia {
 
         for(Usuario usuario:listaUsuarios)
         {
-            if(usuario.getClass().getSimpleName() == "Anunciante"){
+            if(usuario.getClass().getSimpleName() != "Anunciante"){
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Comprador," + listaUsuarios.indexOf(usuario) + "\n";
             }else{
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante," + listaUsuarios.indexOf(usuario) + "\n";
@@ -71,8 +68,28 @@ public class Persistencia {
 
     }
 
+    public static void guardarAnuncios(ArrayList<Anuncio> listaAnuncios) throws IOException {
+
+        String contenido = "";
+
+        for(Anuncio anuncio: listaAnuncios){
+            contenido += anuncio.getNombreAnuncio()+","+anuncio.getTipoProducto()+","+anuncio.getDescripcion()+","+
+                    anuncio.getFechaPublicacion()+","+anuncio.getFechaCaducidad()+","+anuncio.getValorInicial()+","+
+                    anuncio.getEstadoAnuncio()+"\n";
+        }
+        ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
+    }
+
 
 //	----------------------LOADS------------------------
+
+    public static ArrayList<String> cargarTipoProductosProperties() throws IOException {
+
+        ArrayList<String> tipoProductos = ArchivoUtil.leerProperties(RUTA_ARCHIVO_PROPERTIES_MODALIDADES);
+
+        return tipoProductos;
+
+    }
 
     /**
      * @return un Arraylist de personas con los datos obtenidos del archivo de texto indicado
@@ -81,7 +98,7 @@ public class Persistencia {
      */
     public static ArrayList<Usuario> cargarUsuarios() throws FileNotFoundException, IOException
     {
-        ArrayList<Usuario> usuarios =new ArrayList<Usuario>();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
 
         ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_USUARIOS);
         String linea="";

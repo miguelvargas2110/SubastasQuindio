@@ -1,8 +1,9 @@
 package co.uniquindio.prog3.subastasquindio.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class SubastasQuindio implements Serializable {
 
@@ -69,5 +70,20 @@ public class SubastasQuindio implements Serializable {
 
         return comprador;
 
+    }
+
+    public Anuncio crearAnuncio(String nombreAnuncio, String tipoProducto, String descripcion, String fechaCaducidad, Double valorInicial) {
+
+        Anuncio anuncio = new Anuncio();
+
+        anuncio.setNombreAnuncio(nombreAnuncio);
+        anuncio.setTipoProducto(tipoProducto);
+        anuncio.setDescripcion(descripcion);
+        anuncio.setFechaPublicacion(String.valueOf(LocalDate.now()));
+        anuncio.setFechaCaducidad(fechaCaducidad);
+        anuncio.setValorInicial(valorInicial);
+        anuncio.setEstadoAnuncio(true);
+
+        return anuncio;
     }
 }

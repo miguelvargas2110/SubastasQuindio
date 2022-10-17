@@ -2,18 +2,11 @@ package co.uniquindio.prog3.subastasquindio.persistencia;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,7 +105,7 @@ public  class ArchivoUtil {
 
     }
 
-    private static void cargarFechaSistema() {
+    public static void cargarFechaSistema() {
 
         String diaN = "";
         String mesN = "";
@@ -220,6 +213,41 @@ public  class ArchivoUtil {
     }
 
 
+    public static ArrayList<String> leerProperties(String rutaArchivo) throws IOException {
 
+        Properties propiedades = new Properties();
 
+        ArrayList<String> contenido = new ArrayList<>();
+
+        InputStream entrada = null;
+
+        try {
+
+            entrada = new FileInputStream(rutaArchivo);
+
+            propiedades.load(entrada);
+
+            Enumeration<Object> claves = propiedades.keys();
+
+            while (claves.hasMoreElements()) {
+
+                Object clave = claves.nextElement();
+
+                contenido.add(propiedades.get(clave).toString());
+
+            }
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            entrada.close();
+
+        }
+
+        return contenido;
+
+    }
 }

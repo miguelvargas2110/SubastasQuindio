@@ -1,11 +1,8 @@
 package co.uniquindio.prog3.subastasquindio.controladores;
 
 
-import co.uniquindio.prog3.subastasquindio.modelo.Anunciante;
-import co.uniquindio.prog3.subastasquindio.modelo.Comprador;
-import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
+import co.uniquindio.prog3.subastasquindio.modelo.*;
 
-import co.uniquindio.prog3.subastasquindio.modelo.Usuario;
 import co.uniquindio.prog3.subastasquindio.persistencia.Persistencia;
 
 import java.io.IOException;
@@ -124,6 +121,33 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         subastasQuindio.getListaUsuarios().add(usuario);
 
         Persistencia.guardarUsuarios(subastasQuindio.getListaUsuarios());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
+
+    }
+
+    public ArrayList<String> cargarTipoPrudctos() throws IOException {
+
+        ArrayList<String> tipoProductos = Persistencia.cargarTipoProductosProperties();
+
+        return tipoProductos;
+
+    }
+
+    public Anuncio crearAnuncio(String nombreAnuncio, String tipoProducto, String descripcion, String fechaCaducidad, Double valorInicial) {
+
+        Anuncio anuncio;
+
+        anuncio = getSubastasQuindio().crearAnuncio(nombreAnuncio, tipoProducto, descripcion, fechaCaducidad, valorInicial);
+
+        return anuncio;
+    }
+
+    public void guardarAnuncioArchivo(Anuncio anuncio) throws IOException {
+
+        subastasQuindio.getListaAnuncios().add(anuncio);
+
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
 

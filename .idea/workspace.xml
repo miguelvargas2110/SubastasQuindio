@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Menu Principal version 1.0">
+    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Errores arreglados que daban al momento de registrarse e iniciar sesion">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistencia/tipoProducto.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/aplicacion/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/aplicacion/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorAnuncios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorAnuncios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/ArchivoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/ArchivoUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/Anuncios.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Anuncios.fxml" afterDir="false" />
     </list>
     <list id="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" name="Changes by marth" comment="" />
+    <list id="5ef229a8-10b2-44ae-9c6f-c8e3a2b084e9" name="Changes by migue" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665341834121</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Errores arreglados que daban al momento de registrarse e iniciar sesion">
+      <created>1666014817177</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666014817177</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +278,8 @@
     <MESSAGE value="Login and Register" />
     <MESSAGE value="Excepciones y Interface creadas" />
     <MESSAGE value="Primera Entrega" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primera Entrega" />
+    <MESSAGE value="Errores arreglados que daban al momento de registrarse e iniciar sesion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Errores arreglados que daban al momento de registrarse e iniciar sesion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

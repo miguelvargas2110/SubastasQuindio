@@ -5,34 +5,31 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 
 public class Anuncio implements Serializable {
 
-    public SimpleStringProperty nombreProducto = new SimpleStringProperty();
+    public SimpleStringProperty nombreAnuncio = new SimpleStringProperty();
     public SimpleStringProperty descripcion = new SimpleStringProperty();
     public SimpleStringProperty tipoProducto = new SimpleStringProperty();
     public SimpleStringProperty foto = new SimpleStringProperty(); //o Image foto;
     public SimpleStringProperty nombreAnunciante = new SimpleStringProperty();
-    public SimpleDateFormat fechaPublicacion = new SimpleDateFormat();
-    public SimpleDateFormat fechaCaducidad = new SimpleDateFormat();
+    public SimpleStringProperty fechaPublicacion = new SimpleStringProperty();
+    public SimpleStringProperty fechaCaducidad = new SimpleStringProperty();
     public SimpleDoubleProperty valorInicial = new SimpleDoubleProperty();
     public SimpleBooleanProperty estadoAnuncio = new SimpleBooleanProperty();
 
     public Anuncio() {
     }
 
-    public String getNombreProducto() {
+    public String getNombreAnuncio() {
 
-        return nombreProducto.get();
+        return nombreAnuncio.get();
 
     }
 
-    public void setNombreProducto(String nombreProducto) {
+    public void setNombreAnuncio(String nombreProducto) {
 
-        this.nombreProducto.set(nombreProducto);
+        this.nombreAnuncio.set(nombreProducto);
 
     }
 
@@ -84,27 +81,27 @@ public class Anuncio implements Serializable {
 
     }
 
-    public SimpleDateFormat getFechaPublicacion() {
+    public String getFechaPublicacion() {
 
-        return fechaPublicacion;
-
-    }
-
-    public void setFechaPublicacion(SimpleDateFormat fechaPublicacion) {
-
-        this.fechaPublicacion = fechaPublicacion;
+        return fechaPublicacion.get();
 
     }
 
-    public SimpleDateFormat getFechaCaducidad() {
+    public void setFechaPublicacion(String fechaPublicacion) {
 
-        return fechaCaducidad;
+        this.fechaPublicacion.set(fechaPublicacion);
 
     }
 
-    public void setFechaCaducidad(SimpleDateFormat fechaCaducidad) {
+    public String getFechaCaducidad() {
 
-        this.fechaCaducidad = fechaCaducidad;
+        return fechaCaducidad.get();
+
+    }
+
+    public void setFechaCaducidad(String fechaCaducidad) {
+
+        this.fechaCaducidad.set(fechaCaducidad);
 
     }
 
