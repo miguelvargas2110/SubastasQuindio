@@ -14,11 +14,12 @@
             <TextArea fx:id="txtDescripcionAnuncio" layoutX="14.0" layoutY="140.0" prefHeight="60.0" prefWidth="250.0" promptText="Descripcion del Producto" />
             <DatePicker fx:id="txtFechaFinalizacionAnuncio" layoutX="14.0" layoutY="230.0" prefWidth="250.0" promptText="Fecha de Finalizacion" />
             <TextField fx:id="txtValorInicialAnuncio" layoutX="14.0" layoutY="285.0" prefWidth="250.0" promptText="Valor Inicial" />
-            <Button fx:id="btnPublicarAnuncio" layoutX="290.0" layoutY="285.0" mnemonicParsing="false" onAction="#PublicarAnuncio" prefWidth="66.0" text="Publicar" />
-            <Button fx:id="btnEditarAnuncio" layoutX="365.0" layoutY="285.0" mnemonicParsing="false" onAction="#EditarAnuncio" prefWidth="66.0" text="Editar" />
-            <Button fx:id="btnEliminarAnuncio" layoutX="440.0" layoutY="285.0" mnemonicParsing="false" onAction="#EliminarAnuncio" prefWidth="66.0" text="Eliminar" />
-            <Button fx:id="btnCancelar" layoutX="515.0" layoutY="284.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
+            <Button fx:id="btnPublicarAnuncio" layoutX="290.0" layoutY="300.0" mnemonicParsing="false" onAction="#PublicarAnuncio" prefWidth="66.0" text="Publicar" />
+            <Button fx:id="btnEditarAnuncio" layoutX="365.0" layoutY="300.0" mnemonicParsing="false" onAction="#EditarAnuncio" prefWidth="66.0" text="Editar" />
+            <Button fx:id="btnEliminarAnuncio" layoutX="440.0" layoutY="300.0" mnemonicParsing="false" onAction="#EliminarAnuncio" prefWidth="66.0" text="Eliminar" />
+            <Button fx:id="btnCancelar" layoutX="515.0" layoutY="300.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
             <ChoiceBox fx:id="cbTipoProducto" layoutX="14.0" layoutY="85.0" prefHeight="26.0" prefWidth="250.0" />
+            <Label fx:id="lblAnuncio" layoutX="289.0" layoutY="256.0" prefHeight="38.0" prefWidth="294.0" wrapText="true" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>

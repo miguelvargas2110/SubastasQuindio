@@ -47,6 +47,7 @@ public class ControladorAnuncios implements Initializable {
     @FXML private Button btnEditarAnuncio;
     @FXML private Button btnEliminarAnuncio;
     @FXML private Button btnCancelar;
+    @FXML private Label lblAnuncio;
 
     ObservableList<Anuncio> anuncios;
 
@@ -60,21 +61,22 @@ public class ControladorAnuncios implements Initializable {
                 validarFecha(txtFechaFinalizacionAnuncio.getValue());
             }catch (ExcepcionFechaAnuncioInvalida e){
                 ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en Fecha de anuncio" , 1, e.toString());
-                JOptionPane.showMessageDialog(null,"Recuerde que la fecha de caducidad debe ser superior de la fecha actual");
+                lblAnuncio.setText("La fecha de finalizacion debe ser mayor a la fecha actual");
                 ok = false;
             }
             try {
                 Double.parseDouble(txtValorInicialAnuncio.getText());
             }
             catch (NumberFormatException e){
-                JOptionPane.showMessageDialog(null,"El valor inicial debe estar en numeros");
+                lblAnuncio.setText("El valor inicial debe estar en numeros");
                 ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en valor inicial" , 1, e.toString());
                 ok = false;
             }
             if(ok){
                 Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
                 ControladorModelFactory.getInstance().guardarAnuncioArchivo(anuncio);
-                ControladorModelFactory.getInstance().guardarRegistroLog("Se ha guardado el anuncio " + txtNombreAnuncio.getText(), 1, "guardarAnuncio");
+                lblAnuncio.setText("Se ha publicado el anuncio");
+                ControladorModelFactory.getInstance().guardarRegistroLog("Se ha publicado el anuncio " + txtNombreAnuncio.getText(), 1, "guardarAnuncio");
                 this.inicializarTabla();
             }
         }
@@ -92,6 +94,10 @@ public class ControladorAnuncios implements Initializable {
 
         ControladorModelFactory.getInstance().eliminarAnuncioArchivo(anuncioSeleccionado);
 
+        lblAnuncio.setText("Se ha eliminado el anuncio");
+
+        ControladorModelFactory.getInstance().guardarRegistroLog("Se ha eliminado el anuncio " + txtNombreAnuncio.getText(), 1, "eliminarAnuncio");
+
         this.inicializarTabla();
     }
 
@@ -106,21 +112,22 @@ public class ControladorAnuncios implements Initializable {
                     validarFecha(txtFechaFinalizacionAnuncio.getValue());
                 }catch (ExcepcionFechaAnuncioInvalida e){
                     ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en Fecha de anuncio" , 1, e.toString());
-                    JOptionPane.showMessageDialog(null,"Recuerde que la fecha de caducidad debe ser superior de la fecha actual");
+                    lblAnuncio.setText("La fecha de finalizacion debe ser mayor a la fecha actual");
                     ok = false;
                 }
                 try {
                     Double.parseDouble(txtValorInicialAnuncio.getText());
                 }
                 catch (NumberFormatException e){
-                    JOptionPane.showMessageDialog(null,"El valor inicial debe estar en numeros");
+                    lblAnuncio.setText("El valor inicial debe estar en numeros");
                     ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en valor inicial" , 1, e.toString());
                     ok = false;
                 }
                 if(ok) {
                     Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
                     ControladorModelFactory.getInstance().editarAnuncioArchivo(anuncioSeleccionado, anuncio);
-                    ControladorModelFactory.getInstance().guardarRegistroLog("Se ha guardado el anuncio " + txtNombreAnuncio.getText(), 1, "guardarAnuncio");
+                    lblAnuncio.setText("Se ha editado el anuncio");
+                    ControladorModelFactory.getInstance().guardarRegistroLog("Se ha editado el anuncio " + txtNombreAnuncio.getText(), 1, "editarAnuncio");
                     this.inicializarTabla();
                 }
             }

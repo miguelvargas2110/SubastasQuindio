@@ -39,6 +39,6 @@
          <RadioButton fx:id="rbComprador" mnemonicParsing="false" text="Comprador" toggleGroup="$TipoUsuario" />
       </children>
    </HBox>
-   <Label fx:id="lblRegistro" />
+   <Label fx:id="lblRegistro" wrapText="true" />
     <Button onAction="#onActionRegistrarse" prefHeight="26.0" prefWidth="357.0" text="Registrarse" />
 </VBox>
