@@ -1,21 +1,25 @@
 package co.uniquindio.prog3.subastasquindio.modelo;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Anuncio implements Serializable {
 
-    TipoProducto tipoProducto;
-    String nombreProducto;
-    String descripcion;
-    String foto; //o Image foto;
-    String nombreAnunciante;
-    Date fechaPublicacion;
-    Date fechaCaducidad;
-    double valorInicial;
-    boolean estadoAnuncio;
-    ArrayList<Puja> listaPujas;
+    public SimpleStringProperty nombreProducto = new SimpleStringProperty();
+    public SimpleStringProperty descripcion = new SimpleStringProperty();
+    public SimpleStringProperty tipoProducto = new SimpleStringProperty();
+    public SimpleStringProperty foto = new SimpleStringProperty(); //o Image foto;
+    public SimpleStringProperty nombreAnunciante = new SimpleStringProperty();
+    public SimpleDateFormat fechaPublicacion = new SimpleDateFormat();
+    public SimpleDateFormat fechaCaducidad = new SimpleDateFormat();
+    public SimpleDoubleProperty valorInicial = new SimpleDoubleProperty();
+    public SimpleBooleanProperty estadoAnuncio = new SimpleBooleanProperty();
 
     public Anuncio() {
     }

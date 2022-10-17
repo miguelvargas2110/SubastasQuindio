@@ -4,18 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Menu Principal version 1.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorModelFactory.java" afterDir="false" />
+    <list default="true" id="f282d194-23e7-403b-b85e-cb9a5000d0cc" name="Changes" comment="Login sin completar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/aplicacion/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/aplicacion/Aplicacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/OperacionesCrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/servicios/OperacionesCrud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flujoDatos/archivoUsuarios.txt" beforeDir="false" />
+    </list>
+    <list id="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" name="Changes by marth" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anunciante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anunciante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Comprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Comprador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Puja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Puja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/SubastasQuindio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/TipoProducto.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/archivoUsuarios.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flujoDatos/archivoUsuarios.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistas/Register.fxml" afterDir="false" />
     </list>
-    <list id="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" name="Changes by marth" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +34,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,7 +64,62 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="5" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="36" end1="37" start2="37" end2="38" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="64" end1="65" start2="65" end2="66" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="94" end1="94" start2="95" end2="100" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="156" end1="157" start2="162" end2="163" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="169" end1="170" start2="175" end2="176" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="180" end1="181" start2="186" end2="187" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="196" end1="197" start2="202" end2="203" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/modelo/Anuncio.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="6" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="3" end1="3" start2="7" end2="8" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="8" end1="18" start2="13" end2="22" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="21" end1="29" start2="25" end2="25" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="31" end1="32" start2="27" end2="30" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="35" end1="36" start2="33" end2="36" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="39" end1="40" start2="39" end2="42" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="43" end1="44" start2="45" end2="60" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="47" end1="48" start2="63" end2="66" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="51" end1="52" start2="69" end2="72" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="55" end1="56" start2="75" end2="78" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="59" end1="60" start2="81" end2="84" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="62" end1="63" start2="86" end2="88" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="64" end1="64" start2="89" end2="90" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="66" end1="67" start2="92" end2="94" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="68" end1="68" start2="95" end2="96" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="70" end1="71" start2="98" end2="100" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="72" end1="72" start2="101" end2="102" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="74" end1="75" start2="104" end2="106" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="76" end1="76" start2="107" end2="108" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="79" end1="80" start2="111" end2="114" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="83" end1="84" start2="117" end2="120" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="86" end1="88" start2="122" end2="126" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="91" end1="93" start2="129" end2="129" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="94" end1="97" start2="130" end2="131" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="98" end1="100" start2="132" end2="132" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/controladores/ControladorRegistro.java">
+      <ranges>
+        <range start1="9" end1="13" start2="9" end2="10" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="33" end1="34" start2="30" end2="31" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="37" end1="38" start2="34" end2="34" changelist="fa97f1df-c49b-4ead-bb4f-60e9f38bdeaa" />
+        <range start1="41" end1="42" start2="37" end2="39" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="43" end1="44" start2="40" end2="43" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="45" end1="46" start2="44" end2="44" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="49" end1="50" start2="47" end2="49" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+        <range start1="51" end1="52" start2="50" end2="53" changelist="f282d194-23e7-403b-b85e-cb9a5000d0cc" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,47 +132,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/IdeaProjects/SubastasQuindio/src/main/resources/co/uniquindio/prog3/subastasquindio&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/marth/IdeaProjects/SubastasQuindio/build/resources/java/main/co",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\resources\java\main\co" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\resources\java\main" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\classes\java\main\co\uniquindio\prog3\subastasquindio\vistas" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\vista" />
       <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java\co\uniquindio\prog3\subastasquindio\vistas" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\resources\flujoDatos" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\build\resources\java" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\resources\vistas" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
+      <recent name="C:\Users\marth\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio\aplicacion" />
       <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\resources\co\uniquindio\prog3\subastasquindio" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main\java" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src\main" />
-      <recent name="C:\Users\migue\IdeaProjects\SubastasQuindio\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="co.uniquindio.prog3.subastasquindio" />
       <recent name="" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="co.uniquindio.prog3.subastasquindio.controladores" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion">
+  <component name="RunManager" selected="Application.Aplicacion">
     <configuration name="Aplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.Aplicacion" />
+      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion" />
       <module name="SubastasQuindio.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.*" />
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,25 +195,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion" />
-      <module name="SubastasQuindio.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
       <module name="SubastasQuindio.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.*" />
+          <option name="PATTERN" value="co.uniquindio.prog3.subastasquindio.aplicacion.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,14 +223,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion" />
       <item itemvalue="Application.Aplicacion" />
       <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
       <item itemvalue="Application.HelloApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion" />
         <item itemvalue="Application.Aplicacion" />
         <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
         <item itemvalue="Application.co.uniquindio.prog3.subastasquindio.aplicacion.HelloApplication" />
@@ -207,9 +270,7 @@
       <workItem from="1665363309842" duration="2617000" />
       <workItem from="1665520359844" duration="1049000" />
       <workItem from="1665521570224" duration="496000" />
-      <workItem from="1665933810393" duration="1474000" />
-      <workItem from="1665936145567" duration="2028000" />
-      <workItem from="1665948265965" duration="179000" />
+      <workItem from="1665579253530" duration="4797000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <created>1664841291578</created>
@@ -268,6 +329,26 @@
     <MESSAGE value="Login and Register" />
     <MESSAGE value="Excepciones y Interface creadas" />
     <MESSAGE value="Primera Entrega" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primera Entrega" />
+    <MESSAGE value="Login sin completar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login sin completar" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/co/uniquindio/prog3/subastasquindio/persistencia/Persistencia.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

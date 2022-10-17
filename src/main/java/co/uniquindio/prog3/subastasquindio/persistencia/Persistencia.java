@@ -34,7 +34,7 @@ public class Persistencia {
         ArrayList<Empleado> empleadosCargados = cargarEmpleados();
 
         if(empleadosCargados.size() > 0)
-            banco.getListaEmpleados().addAll(empleadosCargados);
+            SubastasQuindio.getListaEmpleados().addAll(empleadosCargados);
         */
         //cargar archivo objetos
 
@@ -62,7 +62,7 @@ public class Persistencia {
             if(usuario.getAnunciante() == null){
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Comprador," + listaUsuarios.indexOf(usuario) + "\n";
             }else{
-                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante" + listaUsuarios.indexOf(usuario) + "\n";
+                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante," + listaUsuarios.indexOf(usuario) + "\n";
             }
 
         }
@@ -154,7 +154,7 @@ public class Persistencia {
     //------------------------------------SERIALIZACIÓN  y XML
 
 
-    public static SubastasQuindio cargarRecursoBancoBinario() {
+    public static SubastasQuindio cargarRecursoSubastasQuindioBinario() {
 
         SubastasQuindio subastasQuindio = null;
 
@@ -167,7 +167,7 @@ public class Persistencia {
         return subastasQuindio;
     }
 
-    public static void guardarRecursoBancoBinario(SubastasQuindio subastasQuindio) {
+    public static void guardarRecursoSubastasQuindioBinario(SubastasQuindio subastasQuindio) {
 
         try {
             ArchivoUtil.salvarRecursoSerializado(RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO, subastasQuindio);
@@ -178,7 +178,7 @@ public class Persistencia {
     }
 
 
-    public static SubastasQuindio cargarRecursoBancoXML() {
+    public static SubastasQuindio cargarRecursoSubastasQuindioXML() {
 
         SubastasQuindio subastasQuindio = null;
 
@@ -194,7 +194,7 @@ public class Persistencia {
 
 
 
-    public static void guardarRecursoBancoXML(SubastasQuindio subastasQuindio) {
+    public static void guardarRecursoSubastasQuindioXML(SubastasQuindio subastasQuindio) {
 
         try {
             ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML, subastasQuindio);
