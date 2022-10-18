@@ -94,7 +94,7 @@ public class ControladorRegistro {
         }
     }
     private void validarUsuario (String nombreUsuario) throws ExcepcionNombreUsuarioInvalido{
-        if (nombreUsuario.length()>8){
+        if (nombreUsuario.length()<8){
             throw new ExcepcionNombreUsuarioInvalido();
         }
     }

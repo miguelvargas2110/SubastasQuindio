@@ -56,7 +56,7 @@ public class Persistencia {
 
         for(Usuario usuario:listaUsuarios)
         {
-            if(usuario.getClass().getSimpleName() != "Anunciante"){
+            if(usuario.getClass().getSimpleName().equals("Comprador")){
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Comprador," + listaUsuarios.indexOf(usuario) + "\n";
             }else{
                 contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante," + listaUsuarios.indexOf(usuario) + "\n";
@@ -67,12 +67,12 @@ public class Persistencia {
 
     }
 
-    public static void guardarAnuncios(ArrayList<Anuncio> listaAnuncios) throws IOException {
+    public static void guardarAnuncios(ArrayList<Anuncio> listaAnuncios, String nombre) throws IOException {
 
         String contenido = "";
 
         for(Anuncio anuncio: listaAnuncios){
-            contenido += anuncio.getNombreAnuncio()+","+anuncio.getTipoProducto()+","+anuncio.getDescripcion()+","+
+            contenido += anuncio.getNombreAnunciante()+","+anuncio.getNombreAnuncio()+","+anuncio.getTipoProducto()+","+anuncio.getDescripcion()+","+
                     anuncio.getFechaPublicacion()+","+anuncio.getFechaCaducidad()+","+anuncio.getValorInicial()+","+
                     anuncio.getEstadoAnuncio()+"\n";
         }
@@ -106,11 +106,14 @@ public class Persistencia {
         for (int i = 0; i < contenido.size(); i++)
         {
             linea = contenido.get(i);
-            if(linea.split(",")[3] == "Anunciante"){
+            if(linea.split(",")[3].equals("Anunciante")){
                 Anunciante anunciante = new Anunciante();
+                ArrayList<Anuncio> anuncios = new ArrayList<>();
                 anunciante.setNombre(linea.split(",")[0]);
                 anunciante.setCorreo(linea.split(",")[1]);
                 anunciante.setContrasena(linea.split(",")[2]);
+                anuncios = cargarAnunciosUsuario(anunciante);
+                anunciante.setAnuncios(anuncios);
                 usuarios.add(anunciante);
             }else{
                 Comprador comprador = new Comprador();
@@ -121,6 +124,48 @@ public class Persistencia {
             }
         }
         return usuarios;
+    }
+
+    public static ArrayList<Anuncio> cargarAnuncios() throws IOException
+    {
+        ArrayList<Anuncio> anuncios = new ArrayList<>();
+
+        try{
+            ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_ANUNCIOS);
+            String linea="";
+
+            for (int i = 0; i < contenido.size(); i++)
+            {
+                linea = contenido.get(i);
+                Anuncio anuncio = new Anuncio();
+                anuncio.setNombreAnunciante(linea.split(",")[0]);
+                anuncio.setNombreAnuncio(linea.split(",")[1]);
+                anuncio.setTipoProducto(linea.split(",")[2]);
+                anuncio.setDescripcion(linea.split(",")[3]);
+                anuncio.setFechaPublicacion(linea.split(",")[4]);
+                anuncio.setFechaCaducidad(linea.split(",")[5]);
+                anuncio.setValorInicial(Double.parseDouble(linea.split(",")[6]));
+                anuncio.setEstadoAnuncio(Boolean.parseBoolean(linea.split(",")[7]));
+            }
+            return anuncios;
+        }catch (FileNotFoundException e){
+            return null;
+        }
+
+    }
+
+    private static ArrayList<Anuncio> cargarAnunciosUsuario(Anunciante anunciante) throws IOException {
+
+        ArrayList<Anuncio> anunciosCargados = cargarAnuncios();
+
+        ArrayList<Anuncio> anunciosUsuario = new ArrayList<>();
+
+        for(int i = 0;anunciosCargados != null && i < anunciosCargados.size() ; i++){
+            if(anunciante.getNombre().equals(anunciosCargados.get(i).getNombreAnunciante())){
+                anunciosUsuario.add(anunciosCargados.get(i));
+            }
+        }
+        return anunciosUsuario;
     }
 
 

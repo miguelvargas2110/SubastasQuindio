@@ -1,5 +1,8 @@
 package co.uniquindio.prog3.subastasquindio.aplicacion;
 
+import co.uniquindio.prog3.subastasquindio.controladores.ControladorLogin;
+import co.uniquindio.prog3.subastasquindio.controladores.ControladorMenu;
+import co.uniquindio.prog3.subastasquindio.controladores.ControladorMenu1;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,10 +13,12 @@ import java.io.IOException;
 public class Aplicacion extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Menu1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Menu");
         stage.setScene(scene);
+        ControladorMenu1 controladorMenu1 = fxmlLoader.getController();
+        controladorMenu1.setStage(stage);
         stage.show();
     }
 
@@ -37,6 +42,8 @@ public class Aplicacion extends Application {
             Stage stage = new Stage();
             stage.setTitle("Login");
             stage.setScene(scene);
+            ControladorLogin controladorLogin = fxmlLoader.getController();
+            controladorLogin.setStage(stage);
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -84,6 +91,19 @@ public class Aplicacion extends Application {
 
     public void Usuarios(){
         FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Usuarios.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Usuarios");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void MenuLogeado(){
+        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/MenuLogueado.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();

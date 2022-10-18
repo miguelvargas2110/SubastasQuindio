@@ -4,6 +4,7 @@ package co.uniquindio.prog3.subastasquindio.controladores;
 import co.uniquindio.prog3.subastasquindio.modelo.*;
 
 import co.uniquindio.prog3.subastasquindio.persistencia.Persistencia;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -134,43 +135,60 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public Anuncio crearAnuncio(String nombreAnuncio, String tipoProducto, String descripcion, String fechaCaducidad, Double valorInicial) {
+    public Anuncio crearAnuncio(String nombreAnunciante,String nombreAnuncio, String tipoProducto, String descripcion, String fechaCaducidad, Double valorInicial) {
 
         Anuncio anuncio;
 
-        anuncio = getSubastasQuindio().crearAnuncio(nombreAnuncio, tipoProducto, descripcion, fechaCaducidad, valorInicial);
+        anuncio = getSubastasQuindio().crearAnuncio(nombreAnunciante, nombreAnuncio, tipoProducto, descripcion, fechaCaducidad, valorInicial);
 
         return anuncio;
     }
 
-    public void guardarAnuncioArchivo(Anuncio anuncio) throws IOException {
+    public void guardarAnuncioArchivo(Anuncio anuncio, String nombre) throws IOException {
 
         subastasQuindio.getListaAnuncios().add(anuncio);
 
-        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios(), nombre);
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
 
     }
 
-    public void editarAnuncioArchivo (Anuncio anuncio, Anuncio anuncioMod) throws IOException {
+    public void editarAnuncioArchivo (Anuncio anuncio, Anuncio anuncioMod, String nombre) throws IOException {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
         subastasQuindio.getListaAnuncios().add(anuncioMod);
 
-        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios(), nombre);
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
 
-    public void eliminarAnuncioArchivo (Anuncio anuncio) throws IOException {
+    public void eliminarAnuncioArchivo (Anuncio anuncio, String nombre) throws IOException {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
 
-        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios(), nombre);
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
+
+    public void usuarioLogeado(String correo, String contrasena){
+
+        getSubastasQuindio().usuarioLogeado(correo, contrasena);
+
+    }
+
+    public void cerrarVentanas(Stage stage){
+        stage.close();
+    }
+
+    public void guardarAnuncio(Anuncio anuncio, String nombreUsuario) {
+
+        getSubastasQuindio().guardarAnuncio(anuncio, nombreUsuario);
+
+    }
+
 //
 //    public Programa crearPrograma(String nombre, String documento, String modalidad){
 //        Programa programa;

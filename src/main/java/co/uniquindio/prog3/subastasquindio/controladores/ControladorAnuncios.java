@@ -50,6 +50,7 @@ public class ControladorAnuncios implements Initializable {
     @FXML private Label lblAnuncio;
 
     ObservableList<Anuncio> anuncios;
+    String nombreUsuario = ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalAnunciante().getNombre();
 
     public ControladorAnuncios() throws IOException {
     }
@@ -73,8 +74,9 @@ public class ControladorAnuncios implements Initializable {
                 ok = false;
             }
             if(ok){
-                Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
-                ControladorModelFactory.getInstance().guardarAnuncioArchivo(anuncio);
+                Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(nombreUsuario ,txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
+                ControladorModelFactory.getInstance().guardarAnuncio(anuncio, nombreUsuario);
+                ControladorModelFactory.getInstance().guardarAnuncioArchivo(anuncio, nombreUsuario);
                 lblAnuncio.setText("Se ha publicado el anuncio");
                 ControladorModelFactory.getInstance().guardarRegistroLog("Se ha publicado el anuncio " + txtNombreAnuncio.getText(), 1, "guardarAnuncio");
                 this.inicializarTabla();
@@ -92,7 +94,7 @@ public class ControladorAnuncios implements Initializable {
 
         Anuncio anuncioSeleccionado = getTablaAnuncioSeleccionado();
 
-        ControladorModelFactory.getInstance().eliminarAnuncioArchivo(anuncioSeleccionado);
+        ControladorModelFactory.getInstance().eliminarAnuncioArchivo(anuncioSeleccionado, nombreUsuario);
 
         lblAnuncio.setText("Se ha eliminado el anuncio");
 
@@ -124,8 +126,8 @@ public class ControladorAnuncios implements Initializable {
                     ok = false;
                 }
                 if(ok) {
-                    Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
-                    ControladorModelFactory.getInstance().editarAnuncioArchivo(anuncioSeleccionado, anuncio);
+                    Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(nombreUsuario ,txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
+                    ControladorModelFactory.getInstance().editarAnuncioArchivo(anuncioSeleccionado, anuncio, nombreUsuario);
                     lblAnuncio.setText("Se ha editado el anuncio");
                     ControladorModelFactory.getInstance().guardarRegistroLog("Se ha editado el anuncio " + txtNombreAnuncio.getText(), 1, "editarAnuncio");
                     this.inicializarTabla();
@@ -152,7 +154,7 @@ public class ControladorAnuncios implements Initializable {
     private void inicializarTabla() {
 
         anuncios = FXCollections.observableArrayList();
-        anuncios.addAll(ControladorModelFactory.getInstance().getSubastasQuindio().getListaAnuncios());
+        anuncios.addAll(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalAnunciante().getAnuncios());
 
         columnaNombreAnuncio.setCellValueFactory(new PropertyValueFactory<Anuncio, String>("nombreAnuncio"));
         columnaTipoProducto.setCellValueFactory(new PropertyValueFactory<Anuncio, String>("tipoProducto"));
