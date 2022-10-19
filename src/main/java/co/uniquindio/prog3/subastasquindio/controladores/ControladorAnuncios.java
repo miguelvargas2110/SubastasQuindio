@@ -50,7 +50,7 @@ public class ControladorAnuncios implements Initializable {
     @FXML private Label lblAnuncio;
 
     ObservableList<Anuncio> anuncios;
-    String nombreUsuario = ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalAnunciante().getNombre();
+    String nombreUsuario = ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getNombre();
 
     public ControladorAnuncios() throws IOException {
     }
@@ -154,7 +154,7 @@ public class ControladorAnuncios implements Initializable {
     private void inicializarTabla() {
 
         anuncios = FXCollections.observableArrayList();
-        anuncios.addAll(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalAnunciante().getAnuncios());
+        anuncios.addAll(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getAnuncios());
 
         columnaNombreAnuncio.setCellValueFactory(new PropertyValueFactory<Anuncio, String>("nombreAnuncio"));
         columnaTipoProducto.setCellValueFactory(new PropertyValueFactory<Anuncio, String>("tipoProducto"));
@@ -174,7 +174,7 @@ public class ControladorAnuncios implements Initializable {
         public void onChanged(Change<? extends Anuncio> c) {
 
             try {
-                ponerProgramaSeleccionado();
+                ponerAnuncioSeleccionado();
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
@@ -203,7 +203,7 @@ public class ControladorAnuncios implements Initializable {
 
     }
 
-    private void ponerProgramaSeleccionado() throws ParseException {
+    private void ponerAnuncioSeleccionado() throws ParseException {
 
         final Anuncio anuncio = getTablaAnuncioSeleccionado();
 

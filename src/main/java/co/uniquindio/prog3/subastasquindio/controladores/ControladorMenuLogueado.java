@@ -20,18 +20,18 @@ public class ControladorMenuLogueado implements Initializable {
     Label nombreUsuario;
 
     @FXML private void cambiarNombresGUI(){
-        if (ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalComprador() != null){
-            nombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalComprador().getNombre());
+        if (ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
+            nombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre());
             nombreCrud.setText("Pujas");
         }else{
-            nombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalAnunciante().getNombre());
+            nombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getNombre());
             nombreCrud.setText("Anuncios");
         }
 
     }
 
     @FXML private void abrir(){
-        if (ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioglobalComprador() != null){
+        if (ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
             aplicacion.Pujas();
         }else{
             aplicacion.Anuncio();

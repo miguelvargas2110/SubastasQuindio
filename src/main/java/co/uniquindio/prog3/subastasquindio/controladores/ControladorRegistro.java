@@ -81,6 +81,7 @@ public class ControladorRegistro {
                     Usuario usuario = ControladorModelFactory.getInstance().crearComprador(nombreUsuario.getText(), correoUsuario.getText(), contrasenaUsuario.getText());
                     ControladorModelFactory.getInstance().guardarUsuarioArchivo(usuario);
                     ControladorModelFactory.getInstance().guardarRegistroLog("Se ha guardado el usuario" + nombreUsuario.getText(), 1, "guardarUsuario");
+
                 }
             }
 

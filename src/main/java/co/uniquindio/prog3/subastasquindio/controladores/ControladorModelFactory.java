@@ -148,7 +148,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
         subastasQuindio.getListaAnuncios().add(anuncio);
 
-        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios(), nombre);
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
 
@@ -159,7 +159,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         subastasQuindio.getListaAnuncios().remove(anuncio);
         subastasQuindio.getListaAnuncios().add(anuncioMod);
 
-        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios(), nombre);
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
@@ -168,7 +168,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
 
-        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios(), nombre);
+        Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
@@ -186,6 +186,25 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
     public void guardarAnuncio(Anuncio anuncio, String nombreUsuario) {
 
         getSubastasQuindio().guardarAnuncio(anuncio, nombreUsuario);
+
+    }
+
+    public Puja crearPuja(double valorPuja, String nombreAnuncio, String nombreComprador) {
+
+        Puja puja;
+
+        puja = getSubastasQuindio().crearPuja(valorPuja, nombreAnuncio, nombreComprador);
+
+        return puja;
+    }
+
+    public void guardarPujaArchivo(Puja puja) throws IOException {
+
+        subastasQuindio.getListaPujas().add(puja);
+
+        Persistencia.guardarPujas(subastasQuindio.getListaPujas());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
 
     }
 

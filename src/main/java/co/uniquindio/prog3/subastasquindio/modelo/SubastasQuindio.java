@@ -10,8 +10,10 @@ public class SubastasQuindio implements Serializable {
     ArrayList<Usuario> listaUsuarios = new ArrayList<>();
     ArrayList<Anuncio> listaAnuncios = new ArrayList<>();
     ArrayList<Puja> listaPujas = new ArrayList<>();
-    Anunciante usuarioglobalAnunciante = null;
-    Comprador usuarioglobalComprador = null;
+    Anunciante usuarioGlobalAnunciante = null;
+    Comprador usuarioGlobalComprador = null;
+    
+    Anuncio anuncioGlobal = null;
 
     public SubastasQuindio() {
     }
@@ -52,20 +54,28 @@ public class SubastasQuindio implements Serializable {
 
     }
 
-    public Anunciante getUsuarioglobalAnunciante() {
-        return usuarioglobalAnunciante;
+    public Anunciante getUsuarioGlobalAnunciante() {
+        return usuarioGlobalAnunciante;
     }
 
-    public void setUsuarioglobalAnunciante(Anunciante usuarioglobalAnunciante) {
-        this.usuarioglobalAnunciante = usuarioglobalAnunciante;
+    public void setUsuarioGlobalAnunciante(Anunciante usuarioGlobalAnunciante) {
+        this.usuarioGlobalAnunciante = usuarioGlobalAnunciante;
     }
 
-    public Comprador getUsuarioglobalComprador() {
-        return usuarioglobalComprador;
+    public Comprador getUsuarioGlobalComprador() {
+        return usuarioGlobalComprador;
     }
 
-    public void setUsuarioglobalComprador(Comprador usuarioglobalComprador) {
-        this.usuarioglobalComprador = usuarioglobalComprador;
+    public void setUsuarioGlobalComprador(Comprador usuarioGlobalComprador) {
+        this.usuarioGlobalComprador = usuarioGlobalComprador;
+    }
+
+    public Anuncio getAnuncioGlobal() {
+        return anuncioGlobal;
+    }
+
+    public void setAnuncioGlobal(Anuncio anuncioGlobal) {
+        this.anuncioGlobal = anuncioGlobal;
     }
 
     public Anunciante crearAnunciante(String nombre, String correo, String contrasena) {
@@ -114,9 +124,9 @@ public class SubastasQuindio implements Serializable {
             System.out.println(listaUsuarios.get(i).getClass().getSimpleName());
             if(listaUsuarios.get(i).getCorreo().equals(correo) && listaUsuarios.get(i).getContrasena().equals(contrasena)){
                 if(listaUsuarios.get(i).getClass().getSimpleName().equals("Comprador")){
-                    setUsuarioglobalComprador((Comprador) listaUsuarios.get(i));
+                    setUsuarioGlobalComprador((Comprador) listaUsuarios.get(i));
                 }else{
-                    setUsuarioglobalAnunciante((Anunciante) listaUsuarios.get(i));
+                    setUsuarioGlobalAnunciante((Anunciante) listaUsuarios.get(i));
                 }
                 flag = true;
             }
@@ -132,6 +142,18 @@ public class SubastasQuindio implements Serializable {
                 listaUsuarios.set(i, anunciante);
             }
         }
+
+    }
+
+    public Puja crearPuja(Double valorPuja, String nombreAnuncio, String nombreComprador) {
+
+        Puja puja = new Puja();
+
+        puja.setNombreComprador(nombreComprador);
+        puja.setValorPuja(valorPuja);
+        puja.setNombreAnuncio(nombreAnuncio);
+
+        return puja;
 
     }
 }

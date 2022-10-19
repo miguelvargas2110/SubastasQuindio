@@ -2,6 +2,7 @@ package co.uniquindio.prog3.subastasquindio.persistencia;
 
 import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionUsuario;
 import co.uniquindio.prog3.subastasquindio.modelo.*;
+import javafx.collections.ObservableList;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 public class Persistencia {
     public static final String RUTA_ARCHIVO_USUARIOS = "src/main/resources/persistencia/archivoUsuarios.txt";
     public static final String RUTA_ARCHIVO_ANUNCIOS = "src/main/resources/persistencia/archivoAnuncios.txt";
+
+    public static final String RUTA_ARCHIVO_PUJA = "src/main/resources/persistencia/archivoPujas.txt";
     public static final String RUTA_ARCHIVO_LOG = "src/main/resources/persistencia/SubastasLog.txt";
     public static final String RUTA_ARCHIVO_OBJETOS = "src/main/resources/persistencia/archivoObjetos.txt";
     public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/main/resources/persistencia/model.dat";
@@ -67,7 +70,7 @@ public class Persistencia {
 
     }
 
-    public static void guardarAnuncios(ArrayList<Anuncio> listaAnuncios, String nombre) throws IOException {
+    public static void guardarAnuncios(ArrayList<Anuncio> listaAnuncios) throws IOException {
 
         String contenido = "";
 
@@ -79,7 +82,16 @@ public class Persistencia {
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
     }
 
+    public static void guardarPujas(ArrayList<Puja> listaPujas) throws IOException {
 
+        String contenido = "";
+
+        for(Puja puja: listaPujas){
+            contenido += puja.getNombreComprador()+","+puja.getValorPuja()+"," + puja.getNombreAnuncio()+ "\n";
+        }
+        ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_PUJA, contenido, false);
+
+    }
 
 //	----------------------LOADS------------------------
 
@@ -117,9 +129,12 @@ public class Persistencia {
                 usuarios.add(anunciante);
             }else{
                 Comprador comprador = new Comprador();
+                ArrayList<Puja> pujas = new ArrayList<>();
                 comprador.setNombre(linea.split(",")[0]);
                 comprador.setCorreo(linea.split(",")[1]);
                 comprador.setContrasena(linea.split(",")[2]);
+                pujas = cargarPujasUsuario(comprador);
+                comprador.setPujas(pujas);
                 usuarios.add(comprador);
             }
         }
@@ -138,6 +153,7 @@ public class Persistencia {
             {
                 linea = contenido.get(i);
                 Anuncio anuncio = new Anuncio();
+                ArrayList<Puja> pujas = new ArrayList<>();
                 anuncio.setNombreAnunciante(linea.split(",")[0]);
                 anuncio.setNombreAnuncio(linea.split(",")[1]);
                 anuncio.setTipoProducto(linea.split(",")[2]);
@@ -146,12 +162,36 @@ public class Persistencia {
                 anuncio.setFechaCaducidad(linea.split(",")[5]);
                 anuncio.setValorInicial(Double.parseDouble(linea.split(",")[6]));
                 anuncio.setEstadoAnuncio(Boolean.parseBoolean(linea.split(",")[7]));
+                pujas = cargarPujasAnuncio(anuncio);
+                anuncio.setPujas((ObservableList<Puja>) pujas);
+                anuncios.add(anuncio);
             }
             return anuncios;
         }catch (FileNotFoundException e){
             return null;
         }
 
+    }
+
+    private  static ArrayList<Puja> cargarPujas() throws IOException {
+
+        ArrayList<Puja> pujas = new ArrayList<>();
+
+        try {
+            ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_ANUNCIOS);
+            String linea = "";
+            for (int i = 0; i < contenido.size(); i++){
+                linea = contenido.get(i);
+                Puja puja = new Puja();
+                puja.setNombreComprador(linea.split(",")[0]);
+                puja.setValorPuja(Double.parseDouble(linea.split(",")[1]));
+                puja.setNombreAnuncio(linea.split(",")[2]);
+                pujas.add(puja);
+            }
+            return pujas;
+        }catch(FileNotFoundException e){
+            return null;
+        }
     }
 
     private static ArrayList<Anuncio> cargarAnunciosUsuario(Anunciante anunciante) throws IOException {
@@ -166,6 +206,32 @@ public class Persistencia {
             }
         }
         return anunciosUsuario;
+    }
+
+    private static ArrayList<Puja> cargarPujasUsuario(Comprador comprador) throws IOException{
+        ArrayList<Puja> pujasCargadas = cargarPujas();
+
+        ArrayList<Puja> pujasUsuario = new ArrayList<>();
+
+        for(int i = 0;pujasCargadas != null && i < pujasCargadas.size() ; i++){
+            if(comprador.getNombre().equals(pujasCargadas.get(i).getNombreComprador())){
+                pujasUsuario.add(pujasCargadas.get(i));
+            }
+        }
+        return pujasUsuario;
+    }
+
+    private static ArrayList<Puja> cargarPujasAnuncio(Anuncio anuncio) throws IOException {
+        ArrayList<Puja> pujasCargadas = cargarPujas();
+
+        ArrayList<Puja> pujasAnuncio = new ArrayList<>();
+
+        for(int i = 0; pujasCargadas != null && i < pujasCargadas.size(); i++){
+            if(anuncio.getNombreAnuncio().equals(pujasCargadas.get(i).getNombreAnuncio())){
+                pujasAnuncio.add(pujasCargadas.get(i));
+            }
+        }
+        return pujasCargadas;
     }
 
 
