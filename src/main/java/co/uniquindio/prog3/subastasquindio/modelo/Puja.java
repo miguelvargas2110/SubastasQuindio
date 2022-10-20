@@ -12,7 +12,6 @@ public class Puja implements Serializable {
     public SimpleDoubleProperty valorPuja = new SimpleDoubleProperty();
     public SimpleStringProperty nombreAnuncio = new SimpleStringProperty();
     public SimpleStringProperty nombreComprador = new SimpleStringProperty();
-    public SimpleIntegerProperty idPuja = new SimpleIntegerProperty();
 
     public Puja() {
     }
@@ -49,11 +48,4 @@ public class Puja implements Serializable {
         this.nombreComprador.set(nombreComprador);
     }
 
-    public int getIdPuja() {
-        return idPuja.get();
-    }
-
-    public void setIdPuja(int idPuja) {
-        this.idPuja.set(idPuja);
-    }
 }

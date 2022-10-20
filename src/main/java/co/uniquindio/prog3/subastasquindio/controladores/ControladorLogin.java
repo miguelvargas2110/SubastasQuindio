@@ -33,8 +33,11 @@ public class ControladorLogin {
             iniciarSesion(correoUsuario.getText(), contrasenaUsuario.getText());
             ControladorModelFactory.getInstance().usuarioLogeado(correoUsuario.getText(), contrasenaUsuario.getText());
             ControladorModelFactory.getInstance().guardarRegistroLog("El usuario con correo " + correoUsuario.getText() + " ha iniciado sesion", 1, "iniciarSesion");
-            aplicacion.MenuLogeado();
+
+            ControladorModelFactory.getInstance().getSubastasQuindio().getStageMenu1().close();
+            aplicacion.start(ControladorModelFactory.getInstance().subastasQuindio.getStageMenu1());
             stage.close();
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);

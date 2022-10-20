@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 public class ControladorAnuncios implements Initializable {
 
     ObservableList<String> opcionesChoiceBox = FXCollections.observableArrayList();
-    ArrayList<String> tipoProductos = ControladorModelFactory.getInstance().cargarTipoPrudctos();
+    ArrayList<String> tipoProductos = ControladorModelFactory.getInstance().cargarTipoProductos();
     @FXML private ChoiceBox cbTipoProducto;
     @FXML private TextField txtNombreAnuncio;
     @FXML private TextArea txtDescripcionAnuncio;

@@ -9,29 +9,30 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
             <ImageView fitHeight="193.0" fitWidth="310.0" layoutX="276.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField layoutX="141.0" layoutY="288.0" maxHeight="20.0" minHeight="20.0" prefHeight="20.0" prefWidth="120.0" />
+            <TextField fx:id="txtValorPuja" disable="true" layoutX="141.0" layoutY="288.0" maxHeight="20.0" minHeight="20.0" prefHeight="20.0" prefWidth="120.0" />
             <Button layoutX="308.0" layoutY="250.0" mnemonicParsing="false" prefWidth="66.0" text="Editar" />
             <Button layoutX="398.0" layoutY="250.0" mnemonicParsing="false" prefWidth="66.0" text="Eliminar" />
-            <Button layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
-            <Label layoutX="14.0" layoutY="25.0" prefHeight="20.0" prefWidth="120.0" text="Nombre del Anuncio:" />
-            <Label layoutX="14.0" layoutY="70.0" prefHeight="20.0" prefWidth="120.0" text="Tipo del Producto:" />
-            <Label layoutX="14.0" layoutY="115.0" prefHeight="60.0" prefWidth="120.0" text="Descripcion" />
-            <Label layoutX="14.0" layoutY="198.0" prefHeight="20.0" prefWidth="120.0" text="Fecha de inicio:" />
-            <Label layoutX="14.0" layoutY="243.0" prefHeight="20.0" prefWidth="120.0" text="Fecha de Finzalicacion:" />
+            <Button layoutX="491.0" layoutY="249.0" mnemonicParsing="false" onAction="#cancelarPuja" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
+            <Label fx:id="nombreAnuncio" layoutX="14.0" layoutY="25.0" prefHeight="20.0" prefWidth="120.0" text="Nombre del Anuncio:" />
+            <Label fx:id="tipoProducto" layoutX="14.0" layoutY="70.0" prefHeight="20.0" prefWidth="120.0" text="Tipo del Producto:" />
+            <Label fx:id="descripcion" layoutX="14.0" layoutY="115.0" prefHeight="60.0" prefWidth="120.0" text="Descripcion" />
+            <Label fx:id="fechaInicio" layoutX="14.0" layoutY="198.0" prefHeight="20.0" prefWidth="120.0" text="Fecha de inicio:" />
+            <Label fx:id="fechaFin" layoutX="14.0" layoutY="243.0" prefHeight="20.0" prefWidth="120.0" text="Fecha de Finzalicacion:" />
             <Label layoutX="14.0" layoutY="288.0" prefHeight="20.0" prefWidth="120.0" text="Valor de la puja:" />
-            <Label layoutX="141.0" layoutY="25.0" prefWidth="120.0" text="Label" />
-            <Label layoutX="141.0" layoutY="115.0" prefHeight="60.0" prefWidth="120.0" text="Label" />
-            <Label layoutX="141.0" layoutY="198.0" prefWidth="120.0" text="Label" />
-            <Label layoutX="141.0" layoutY="243.0" prefHeight="20.0" prefWidth="120.0" text="Label" />
-            <Label layoutX="141.0" layoutY="72.0" prefWidth="120.0" text="Label" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <TableView prefHeight="171.0" prefWidth="600.0">
+            <TableView fx:id="tablaPujas" prefHeight="171.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="columnaNombreAnuncio" prefWidth="75.0" text="Nombre Anuncio" />
+                <TableColumn fx:id="columnaTipoProducto" prefWidth="75.0" text="Tipo Producto" />
+                  <TableColumn fx:id="columnaFechaInicio" prefWidth="75.0" text="Fecha Inicio" />
+                  <TableColumn fx:id="columnaFechaFin" prefWidth="75.0" text="Fecha Fin" />
+                  <TableColumn fx:id="columnaValorPujado" prefWidth="75.0" text="Valor Pujado" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children></AnchorPane>
   </items>

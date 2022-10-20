@@ -2,11 +2,14 @@ package co.uniquindio.prog3.subastasquindio.controladores;
 
 import co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion;
 import co.uniquindio.prog3.subastasquindio.modelo.Anuncio;
+import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,9 +35,16 @@ public class ControladorMenu1 implements Initializable {
     @FXML private TableColumn columnaFechaFinalizacion;
     @FXML private TableColumn columnaValorInicial;
 
+    @FXML private Button btnRegistro;
+    @FXML private Button btnIngresa;
+    @FXML private Label lblNombreUsuario;
+    @FXML private Button btnLogOut;
+    @FXML private Button btnNombreCrud;
+
     ObservableList<Anuncio> anuncios;
 
     private Stage stage;
+
 
 
     public void onActionLogin(){
@@ -45,11 +55,16 @@ public class ControladorMenu1 implements Initializable {
         aplicacion.Registro();
     }
 
-    public void onActionRefrescar(){inicializarTabla();}
+    public void onActionRefrescar(){inicializarTabla();
+    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
+        ControladorModelFactory.getInstance().getSubastasQuindio().setStageMenu1(stage);
     }
+
+
+
     private void inicializarTabla() {
 
         anuncios = FXCollections.observableArrayList();
@@ -98,9 +113,41 @@ public class ControladorMenu1 implements Initializable {
         return null;
 
     }
+    @FXML private void usuarioLogueado(){
+            lblNombreUsuario.setLayoutX(400);
+            btnRegistro.setText("");
+            btnRegistro.setLayoutX(0);
+            btnRegistro.setPrefWidth(0);
+            btnIngresa.setText("");
+            btnIngresa.setLayoutX(0);
+            btnRegistro.setPrefWidth(0);
+            btnLogOut.setText("Log Out");
+            btnLogOut.setPrefWidth(70);
+            btnLogOut.setLayoutX(520);
+            btnNombreCrud.setLayoutX(14);
+    }
+    @FXML private void abrir(){
+        if (ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
+            aplicacion.Pujas();
+        }else{
+            aplicacion.Anuncio();
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        if(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
+            lblNombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre());
+            btnNombreCrud.setText("Pujas");
+            btnNombreCrud.setPrefWidth(50);
+            usuarioLogueado();
+        }else if(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante() != null){
+            lblNombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getNombre());
+            btnNombreCrud.setText("Anuncios");
+            btnNombreCrud.setPrefWidth(80);
+            usuarioLogueado();
+        }
 
         this.inicializarTabla();
 

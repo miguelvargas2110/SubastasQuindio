@@ -1,5 +1,7 @@
 package co.uniquindio.prog3.subastasquindio.modelo;
 
+import javafx.stage.Stage;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,6 +15,8 @@ public class SubastasQuindio implements Serializable {
     Anunciante usuarioGlobalAnunciante = null;
     Comprador usuarioGlobalComprador = null;
     Anuncio anuncioGlobal = null;
+
+    Stage stageMenu1 = new Stage();
 
 
     public SubastasQuindio() {
@@ -76,6 +80,14 @@ public class SubastasQuindio implements Serializable {
 
     public void setAnuncioGlobal(Anuncio anuncioGlobal) {
         this.anuncioGlobal = anuncioGlobal;
+    }
+
+    public Stage getStageMenu1() {
+        return stageMenu1;
+    }
+
+    public void setStageMenu1(Stage stageMenu1) {
+        this.stageMenu1 = stageMenu1;
     }
 
     public Anunciante crearAnunciante(String nombre, String correo, String contrasena) {

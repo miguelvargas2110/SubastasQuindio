@@ -130,7 +130,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public ArrayList<String> cargarTipoPrudctos() throws IOException {
+    public ArrayList<String> cargarTipoProductos() throws IOException {
 
         ArrayList<String> tipoProductos = Persistencia.cargarTipoProductosProperties();
 
