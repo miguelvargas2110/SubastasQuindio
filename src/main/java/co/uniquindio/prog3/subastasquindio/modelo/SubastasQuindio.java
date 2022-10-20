@@ -12,8 +12,8 @@ public class SubastasQuindio implements Serializable {
     ArrayList<Puja> listaPujas = new ArrayList<>();
     Anunciante usuarioGlobalAnunciante = null;
     Comprador usuarioGlobalComprador = null;
-    
     Anuncio anuncioGlobal = null;
+
 
     public SubastasQuindio() {
     }
@@ -155,5 +155,21 @@ public class SubastasQuindio implements Serializable {
 
         return puja;
 
+    }
+
+    public void guardarPuja(Puja puja, String nombreAnuncio) {
+
+        for(int i = 0; i < listaAnuncios.size(); i++){
+            if(listaAnuncios.get(i).getNombreAnuncio().equals(nombreAnuncio)){
+                if(listaAnuncios.get(i).getPujas() != null){
+                    listaAnuncios.get(i).getPujas().add(puja);
+                }else{
+                    ArrayList<Puja> pujas = new ArrayList<>();
+                    pujas.add(puja);
+                    listaAnuncios.get(i).setPujas(pujas);
+                }
+
+            }
+        }
     }
 }

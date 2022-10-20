@@ -26,10 +26,13 @@ public class Persistencia {
         //cargar archivo de usuarios
         ArrayList<Usuario> usuariosCargados = cargarUsuarios();
 
+        ArrayList<Anuncio> anunciosCargados = cargarAnuncios();
+
         if(usuariosCargados.size() > 0)
             subastasQuindio.getListaUsuarios().addAll(usuariosCargados);
 
-
+        if(anunciosCargados.size() > 0)
+            subastasQuindio.getListaAnuncios().addAll(anunciosCargados);
         /*cargar archivos empleados
         ArrayList<Empleado> empleadosCargados = cargarEmpleados();
 
@@ -163,7 +166,7 @@ public class Persistencia {
                 anuncio.setValorInicial(Double.parseDouble(linea.split(",")[6]));
                 anuncio.setEstadoAnuncio(Boolean.parseBoolean(linea.split(",")[7]));
                 pujas = cargarPujasAnuncio(anuncio);
-                anuncio.setPujas((ObservableList<Puja>) pujas);
+                anuncio.setPujas(pujas);
                 anuncios.add(anuncio);
             }
             return anuncios;
@@ -178,7 +181,7 @@ public class Persistencia {
         ArrayList<Puja> pujas = new ArrayList<>();
 
         try {
-            ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_ANUNCIOS);
+            ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_PUJA);
             String linea = "";
             for (int i = 0; i < contenido.size(); i++){
                 linea = contenido.get(i);

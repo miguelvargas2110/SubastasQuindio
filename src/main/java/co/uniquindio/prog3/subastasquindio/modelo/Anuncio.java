@@ -3,7 +3,9 @@ package co.uniquindio.prog3.subastasquindio.modelo;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 
+import javax.swing.text.SimpleAttributeSet;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Anuncio implements Serializable {
 
@@ -16,7 +18,7 @@ public class Anuncio implements Serializable {
     public SimpleStringProperty fechaCaducidad = new SimpleStringProperty();
     public SimpleDoubleProperty valorInicial = new SimpleDoubleProperty();
     public SimpleBooleanProperty estadoAnuncio = new SimpleBooleanProperty();
-    public SimpleListProperty<Puja> pujas = new SimpleListProperty<>();
+    public SimpleObjectProperty<ArrayList<Puja>> pujas = new SimpleObjectProperty<>();
 
     public Anuncio() {
     }
@@ -129,15 +131,11 @@ public class Anuncio implements Serializable {
 
     }
 
-    public ObservableList<Puja> getPujas() {
+    public ArrayList<Puja> getPujas() {
         return pujas.get();
     }
 
-    public SimpleListProperty<Puja> pujasProperty() {
-        return pujas;
-    }
-
-    public void setPujas(ObservableList<Puja> pujas) {
+    public void setPujas(ArrayList<Puja> pujas) {
         this.pujas.set(pujas);
     }
 }

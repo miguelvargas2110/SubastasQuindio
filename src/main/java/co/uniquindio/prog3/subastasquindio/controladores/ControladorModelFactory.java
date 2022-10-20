@@ -26,6 +26,7 @@ public class ControladorModelFactory {
 
     private ControladorModelFactory() {
 
+
         cargarDatosDesdeArchivos();
 
         if(Persistencia.cargarRecursoSubastasQuindioXML() == null) {
@@ -34,6 +35,8 @@ public class ControladorModelFactory {
             cargarResourceXML();
         }else{
             cargarResourceXML();
+            getSubastasQuindio().setUsuarioGlobalComprador(null);
+            getSubastasQuindio().setUsuarioGlobalAnunciante(null);
             guardarResourceXML();
         }
 
@@ -158,6 +161,8 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
         subastasQuindio.getListaAnuncios().add(anuncioMod);
+        subastasQuindio.getUsuarioGlobalAnunciante().getAnuncios().remove(anuncio);
+        subastasQuindio.getUsuarioGlobalAnunciante().getAnuncios().add(anuncioMod);
 
         Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
 
@@ -167,6 +172,8 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
     public void eliminarAnuncioArchivo (Anuncio anuncio, String nombre) throws IOException {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
+
+        subastasQuindio.getUsuarioGlobalAnunciante().getAnuncios().remove(anuncio);
 
         Persistencia.guardarAnuncios(subastasQuindio.getListaAnuncios());
 
@@ -196,6 +203,10 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         puja = getSubastasQuindio().crearPuja(valorPuja, nombreAnuncio, nombreComprador);
 
         return puja;
+    }
+
+    public void guardarPuja(Puja puja, String nombreAnuncio){
+        ControladorModelFactory.getInstance().getSubastasQuindio().guardarPuja(puja, nombreAnuncio);
     }
 
     public void guardarPujaArchivo(Puja puja) throws IOException {

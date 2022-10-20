@@ -80,6 +80,7 @@ public class ControladorAnuncios implements Initializable {
                 lblAnuncio.setText("Se ha publicado el anuncio");
                 ControladorModelFactory.getInstance().guardarRegistroLog("Se ha publicado el anuncio " + txtNombreAnuncio.getText(), 1, "guardarAnuncio");
                 this.inicializarTabla();
+                Cancelar();
             }
         }
     }
@@ -101,6 +102,8 @@ public class ControladorAnuncios implements Initializable {
         ControladorModelFactory.getInstance().guardarRegistroLog("Se ha eliminado el anuncio " + txtNombreAnuncio.getText(), 1, "eliminarAnuncio");
 
         this.inicializarTabla();
+
+        Cancelar();
     }
 
     @FXML private void EditarAnuncio() throws IOException {
@@ -131,6 +134,7 @@ public class ControladorAnuncios implements Initializable {
                     lblAnuncio.setText("Se ha editado el anuncio");
                     ControladorModelFactory.getInstance().guardarRegistroLog("Se ha editado el anuncio " + txtNombreAnuncio.getText(), 1, "editarAnuncio");
                     this.inicializarTabla();
+                    Cancelar();
                 }
             }
         }

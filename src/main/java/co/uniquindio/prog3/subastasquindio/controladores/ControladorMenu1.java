@@ -53,7 +53,9 @@ public class ControladorMenu1 implements Initializable {
     private void inicializarTabla() {
 
         anuncios = FXCollections.observableArrayList();
-        anuncios.addAll(ControladorModelFactory.getInstance().getSubastasQuindio().getListaAnuncios());
+        if(ControladorModelFactory.getInstance().getSubastasQuindio().getListaAnuncios() != null){
+            anuncios.addAll(ControladorModelFactory.getInstance().getSubastasQuindio().getListaAnuncios());
+        }
 
         columnaNombreAnuncio.setCellValueFactory(new PropertyValueFactory<Anuncio, String>("nombreAnuncio"));
         columnaNombreAnunciante.setCellValueFactory(new PropertyValueFactory<Anuncio, String>("nombreAnunciante"));
