@@ -12,7 +12,7 @@
             <TextField fx:id="txtValorPuja" disable="true" layoutX="141.0" layoutY="288.0" maxHeight="20.0" minHeight="20.0" prefHeight="20.0" prefWidth="120.0" />
             <Button layoutX="308.0" layoutY="250.0" mnemonicParsing="false" prefWidth="66.0" text="Editar" />
             <Button layoutX="398.0" layoutY="250.0" mnemonicParsing="false" prefWidth="66.0" text="Eliminar" />
-            <Button layoutX="491.0" layoutY="249.0" mnemonicParsing="false" onAction="#cancelarPuja" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
+            <Button layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Cancelar" />
             <Label fx:id="nombreAnuncio" layoutX="14.0" layoutY="25.0" prefHeight="20.0" prefWidth="120.0" text="Nombre del Anuncio:" />
             <Label fx:id="tipoProducto" layoutX="14.0" layoutY="70.0" prefHeight="20.0" prefWidth="120.0" text="Tipo del Producto:" />
             <Label fx:id="descripcion" layoutX="14.0" layoutY="115.0" prefHeight="60.0" prefWidth="120.0" text="Descripcion" />
