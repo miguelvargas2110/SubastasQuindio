@@ -9,16 +9,16 @@ import java.util.ArrayList;
 
 public class Anuncio implements Serializable {
 
-    public SimpleStringProperty nombreAnuncio = new SimpleStringProperty();
-    public SimpleStringProperty descripcion = new SimpleStringProperty();
-    public SimpleStringProperty tipoProducto = new SimpleStringProperty();
-    public SimpleStringProperty foto = new SimpleStringProperty(); //o Image foto;
-    public SimpleStringProperty nombreAnunciante = new SimpleStringProperty();
-    public SimpleStringProperty fechaPublicacion = new SimpleStringProperty();
-    public SimpleStringProperty fechaCaducidad = new SimpleStringProperty();
-    public SimpleDoubleProperty valorInicial = new SimpleDoubleProperty();
-    public SimpleBooleanProperty estadoAnuncio = new SimpleBooleanProperty();
-    public SimpleObjectProperty<ArrayList<Puja>> pujas = new SimpleObjectProperty<>();
+    public transient SimpleStringProperty nombreAnuncio = new SimpleStringProperty();
+    public transient SimpleStringProperty descripcion = new SimpleStringProperty();
+    public transient SimpleStringProperty tipoProducto = new SimpleStringProperty();
+    public transient SimpleStringProperty foto = new SimpleStringProperty(); //o Image foto;
+    public transient SimpleStringProperty nombreAnunciante = new SimpleStringProperty();
+    public transient SimpleStringProperty fechaPublicacion = new SimpleStringProperty();
+    public transient SimpleStringProperty fechaCaducidad = new SimpleStringProperty();
+    public transient SimpleDoubleProperty valorInicial = new SimpleDoubleProperty();
+    public transient SimpleBooleanProperty estadoAnuncio = new SimpleBooleanProperty();
+    public transient SimpleObjectProperty<ArrayList<Puja>> pujas = new SimpleObjectProperty<>();
 
     public Anuncio() {
     }

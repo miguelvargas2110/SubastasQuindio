@@ -157,13 +157,14 @@ public class SubastasQuindio implements Serializable {
 
     }
 
-    public Puja crearPuja(Double valorPuja, String nombreAnuncio, String nombreComprador) {
+    public Puja crearPuja(Double valorPuja, String nombreAnuncio, String nombreComprador, Anuncio anuncio) {
 
         Puja puja = new Puja();
 
         puja.setNombreComprador(nombreComprador);
         puja.setValorPuja(valorPuja);
         puja.setNombreAnuncio(nombreAnuncio);
+        puja.setAnuncioAsociado(anuncio);
 
         return puja;
 
@@ -175,12 +176,69 @@ public class SubastasQuindio implements Serializable {
             if(listaAnuncios.get(i).getNombreAnuncio().equals(nombreAnuncio)){
                 if(listaAnuncios.get(i).getPujas() != null){
                     listaAnuncios.get(i).getPujas().add(puja);
+                    usuarioGlobalComprador.getPujas().add(puja);
                 }else{
                     ArrayList<Puja> pujas = new ArrayList<>();
                     pujas.add(puja);
                     listaAnuncios.get(i).setPujas(pujas);
+                    usuarioGlobalComprador.getPujas().add(puja);
                 }
 
+            }
+        }
+    }
+
+    public void editarPuja(Puja puja, Double valorPuja) {
+
+        Puja pujaEditada = new Puja();
+
+        for(int i = 0; i < listaPujas.size(); i++){
+            if(listaPujas.get(i).equals(puja)){
+                pujaEditada.setValorPuja(valorPuja);
+                pujaEditada.setAnuncioAsociado(puja.getAnuncioAsociado());
+                pujaEditada.setNombreAnuncio(puja.getNombreAnuncio());
+                pujaEditada.setNombreComprador(puja.getNombreComprador());
+                listaPujas.set(i, pujaEditada);
+                break;
+            }
+        }
+
+        for(int i = 0; i < usuarioGlobalComprador.getPujas().size(); i++){
+            if(usuarioGlobalComprador.getPujas().get(i).equals(puja)){
+                usuarioGlobalComprador.getPujas().set(i, pujaEditada);
+                break;
+            }
+        }
+
+        for(Anuncio anuncio: listaAnuncios) {
+            for(int i = 0; i < anuncio.getPujas().size(); i++){
+                if(anuncio.getPujas().get(i).equals(puja)){
+                    anuncio.getPujas().set(i, pujaEditada);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void eliminarPuja(Puja pujaSeleccionada) {
+        for(int i = 0; i < listaPujas.size(); i++){
+            if(listaPujas.get(i).equals(pujaSeleccionada)){
+                listaPujas.remove(pujaSeleccionada);
+            }
+        }
+
+        for(int i = 0; i < usuarioGlobalComprador.getPujas().size(); i++){
+            if(usuarioGlobalComprador.getPujas().get(i).equals(pujaSeleccionada)){
+                usuarioGlobalComprador.getPujas().remove(pujaSeleccionada);
+            }
+        }
+
+        for(Anuncio anuncio: listaAnuncios) {
+            for(int i = 0; i < anuncio.getPujas().size(); i++){
+                if(anuncio.getPujas().get(i).equals(pujaSeleccionada)){
+                    anuncio.getPujas().remove(pujaSeleccionada);
+                    break;
+                }
             }
         }
     }

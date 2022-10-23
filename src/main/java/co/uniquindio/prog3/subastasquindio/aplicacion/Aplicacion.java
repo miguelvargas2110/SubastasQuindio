@@ -2,6 +2,9 @@ package co.uniquindio.prog3.subastasquindio.aplicacion;
 
 import co.uniquindio.prog3.subastasquindio.controladores.ControladorLogin;
 import co.uniquindio.prog3.subastasquindio.controladores.ControladorMenu1;
+import co.uniquindio.prog3.subastasquindio.controladores.ControladorRegistro;
+import co.uniquindio.prog3.subastasquindio.controladores.ControladorTransaccional;
+import co.uniquindio.prog3.subastasquindio.persistencia.Persistencia;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -71,6 +74,8 @@ public class Aplicacion extends Application {
             Stage stage = new Stage();
             stage.setTitle("Registro");
             stage.setScene(scene);
+            ControladorRegistro controladorRegistro = fxmlLoader.getController();
+            controladorRegistro.setStage(stage);
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -84,6 +89,8 @@ public class Aplicacion extends Application {
             Stage stage = new Stage();
             stage.setTitle("Transaccional");
             stage.setScene(scene);
+            ControladorTransaccional controladorTransaccional = fxmlLoader.getController();
+            controladorTransaccional.setStage(stage);
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -118,7 +125,6 @@ public class Aplicacion extends Application {
 
 
     public static void main(String[] args) {
-
         launch();
     }
 }

@@ -3,6 +3,7 @@ package co.uniquindio.prog3.subastasquindio.controladores;
 import co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion;
 import co.uniquindio.prog3.subastasquindio.modelo.Anuncio;
 import co.uniquindio.prog3.subastasquindio.modelo.SubastasQuindio;
+import co.uniquindio.prog3.subastasquindio.persistencia.Persistencia;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -48,22 +49,21 @@ public class ControladorMenu1 implements Initializable {
 
 
     public void onActionLogin(){
-       aplicacion.Login();
+        aplicacion.Login();
     }
 
     public void onActionRegistro(){
         aplicacion.Registro();
     }
 
-    public void onActionRefrescar(){inicializarTabla();
+    public void onActionRefrescar(){
+        inicializarTabla();
     }
 
     public void setStage(Stage stage) {
         this.stage = stage;
         ControladorModelFactory.getInstance().getSubastasQuindio().setStageMenu1(stage);
     }
-
-
 
     private void inicializarTabla() {
 
@@ -114,17 +114,17 @@ public class ControladorMenu1 implements Initializable {
 
     }
     @FXML private void usuarioLogueado(){
-            lblNombreUsuario.setLayoutX(400);
-            btnRegistro.setText("");
-            btnRegistro.setLayoutX(0);
-            btnRegistro.setPrefWidth(0);
-            btnIngresa.setText("");
-            btnIngresa.setLayoutX(0);
-            btnRegistro.setPrefWidth(0);
-            btnLogOut.setText("Log Out");
-            btnLogOut.setPrefWidth(70);
-            btnLogOut.setLayoutX(520);
-            btnNombreCrud.setLayoutX(14);
+        lblNombreUsuario.setLayoutX(400);
+        btnRegistro.setText("");
+        btnRegistro.setLayoutX(0);
+        btnRegistro.setPrefWidth(0);
+        btnIngresa.setText("");
+        btnIngresa.setLayoutX(0);
+        btnIngresa.setPrefWidth(0);
+        btnLogOut.setText("Log Out");
+        btnLogOut.setPrefWidth(70);
+        btnLogOut.setLayoutX(520);
+        btnNombreCrud.setLayoutX(14);
     }
     @FXML private void abrir(){
         if (ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
@@ -134,8 +134,30 @@ public class ControladorMenu1 implements Initializable {
         }
     }
 
+    @FXML private void logOut(){
+        ControladorModelFactory.getInstance().getSubastasQuindio().setUsuarioGlobalAnunciante(null);
+        ControladorModelFactory.getInstance().getSubastasQuindio().setUsuarioGlobalComprador(null);
+        lblNombreUsuario.setText("");
+        lblNombreUsuario.setLayoutX(0);
+        btnRegistro.setText("Registrate");
+        btnRegistro.setLayoutX(430);
+        btnRegistro.setPrefWidth(80);
+        btnIngresa.setText("Ingresa");
+        btnIngresa.setLayoutX(520);
+        btnIngresa.setPrefWidth(66);
+        btnLogOut.setText("");
+        btnLogOut.setLayoutX(0);
+        btnLogOut.setPrefWidth(0);
+        btnNombreCrud.setText("");
+        btnNombreCrud.setLayoutX(0);
+        btnNombreCrud.setPrefWidth(0);
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Persistencia.guardarRespaldoSubastasQuindioXML();
 
         if(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
             lblNombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre());

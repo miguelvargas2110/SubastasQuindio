@@ -35,7 +35,7 @@
             </TableView>
             <Button fx:id="btnPujar" layoutX="449.0" layoutY="109.0" mnemonicParsing="false" onAction="#Pujar" text="Pujar" />
             <TextField fx:id="txtValorPujar" layoutX="358.0" layoutY="58.0" prefHeight="26.0" prefWidth="226.0" promptText="Valor de la Puja" />
-            <Label fx:id="lblSapoHpta" layoutX="449.0" layoutY="27.0" text="Label" />
+            <Label fx:id="lblPuja" alignment="CENTER" layoutX="359.0" layoutY="9.0" prefHeight="35.0" prefWidth="226.0" textAlignment="JUSTIFY" wrapText="true" />
          </children></AnchorPane>
   </items>
 </SplitPane>

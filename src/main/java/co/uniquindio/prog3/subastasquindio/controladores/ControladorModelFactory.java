@@ -1,6 +1,7 @@
 package co.uniquindio.prog3.subastasquindio.controladores;
 
 
+import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionPujaNegativa;
 import co.uniquindio.prog3.subastasquindio.modelo.*;
 
 import co.uniquindio.prog3.subastasquindio.persistencia.Persistencia;
@@ -33,8 +34,12 @@ public class ControladorModelFactory {
             System.out.println("es null");
             guardarResourceXML();
             cargarResourceXML();
+            guardarResourceBinario();
+            //cargarResourceBinario();
         }else{
+            //cargarResourceBinario();
             cargarResourceXML();
+            guardarResourceBinario();
             getSubastasQuindio().setUsuarioGlobalComprador(null);
             getSubastasQuindio().setUsuarioGlobalAnunciante(null);
             guardarResourceXML();
@@ -45,16 +50,7 @@ public class ControladorModelFactory {
    public void guardarRegistroLog(String mensaje, int nivel, String accion){
        Persistencia.guardaRegistroLog(mensaje, nivel, accion);
     }
-//
-//    public void guardarEstudianteArchivo(Estudiante estudiante) throws IOException {
-//        universidad.getEstudiantes().add(estudiante);
-//        Persistencia.guardarEstudiantes(universidad.getEstudiantes());
-//    }
-//
-//    public void guardarPrograma(Programa programa){
-//        universidad.getProgramas().add(programa);
-//        Persistencia.guardarRecursoUniversidadXML(universidad);
-//    }
+
     private void cargarDatosDesdeArchivos() {
 
         try {
@@ -66,19 +62,17 @@ public class ControladorModelFactory {
             e.printStackTrace();
         }
     }
-//
+
     public void cargarResourceBinario() {
 
         subastasQuindio = Persistencia.cargarRecursoSubastasQuindioBinario();
     }
-//
-//
+
     public void guardarResourceBinario() {
 
         Persistencia.guardarRecursoSubastasQuindioBinario(subastasQuindio);
     }
-//
-//
+
     public void cargarResourceXML() {
 
         subastasQuindio = Persistencia.cargarRecursoSubastasQuindioXML();
@@ -169,7 +163,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
 
-    public void eliminarAnuncioArchivo (Anuncio anuncio, String nombre) throws IOException {
+    public void eliminarAnuncioArchivo (Anuncio anuncio) throws IOException {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
 
@@ -186,23 +180,29 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public void cerrarVentanas(Stage stage){
-        stage.close();
-    }
-
     public void guardarAnuncio(Anuncio anuncio, String nombreUsuario) {
 
         getSubastasQuindio().guardarAnuncio(anuncio, nombreUsuario);
 
     }
 
-    public Puja crearPuja(double valorPuja, String nombreAnuncio, String nombreComprador) {
+    public Puja crearPuja(double valorPuja, String nombreAnuncio, String nombreComprador, Anuncio anuncio) {
 
         Puja puja;
 
-        puja = getSubastasQuindio().crearPuja(valorPuja, nombreAnuncio, nombreComprador);
+        puja = getSubastasQuindio().crearPuja(valorPuja, nombreAnuncio, nombreComprador, anuncio);
 
         return puja;
+    }
+
+    public void editarPuja(Puja puja, Double valorPuja) throws IOException {
+
+        getSubastasQuindio().editarPuja(puja, valorPuja);
+
+        Persistencia.guardarPujas(subastasQuindio.getListaPujas());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
+
     }
 
     public void guardarPuja(Puja puja, String nombreAnuncio){
@@ -217,6 +217,20 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
 
+    }
+
+    public void validarValorPuja (double valorPuja, double valorInicial) throws ExcepcionPujaNegativa {
+        if (valorPuja < valorInicial){
+            throw new ExcepcionPujaNegativa();
+        }
+    }
+
+    public void eliminarPuja(Puja pujaSeleccionada) throws IOException {
+
+        subastasQuindio.eliminarPuja(pujaSeleccionada);
+        Persistencia.guardarPujas(subastasQuindio.getListaPujas());
+
+        Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
 
 //

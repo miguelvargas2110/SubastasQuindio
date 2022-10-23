@@ -9,9 +9,14 @@ import java.io.Serializable;
 
 public class Puja implements Serializable {
 
-    public SimpleDoubleProperty valorPuja = new SimpleDoubleProperty();
-    public SimpleStringProperty nombreAnuncio = new SimpleStringProperty();
-    public SimpleStringProperty nombreComprador = new SimpleStringProperty();
+    public transient SimpleDoubleProperty valorPuja = new SimpleDoubleProperty();
+    public transient SimpleStringProperty nombreAnuncio = new SimpleStringProperty();
+    public transient SimpleStringProperty nombreComprador = new SimpleStringProperty();
+    public transient SimpleObjectProperty<Anuncio> anuncioAsociado = new SimpleObjectProperty<>();
+    public transient SimpleStringProperty fechaFin = new SimpleStringProperty();
+    public transient SimpleStringProperty fechaInicio = new SimpleStringProperty();
+    public transient SimpleStringProperty tipoProducto = new SimpleStringProperty();
+    public transient SimpleDoubleProperty valorInicial = new SimpleDoubleProperty();
 
     public Puja() {
     }
@@ -48,4 +53,44 @@ public class Puja implements Serializable {
         this.nombreComprador.set(nombreComprador);
     }
 
+    public Anuncio getAnuncioAsociado() {
+        return anuncioAsociado.get();
+    }
+
+    public void setAnuncioAsociado(Anuncio anuncioAsociado) {
+        this.anuncioAsociado.set(anuncioAsociado);
+    }
+
+    public String getFechaFin() {
+        return fechaFin.get();
+    }
+
+    public void setFechaFin() {
+        this.fechaFin.set(getAnuncioAsociado().getFechaCaducidad());
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio.get();
+    }
+
+
+    public void setFechaInicio() {
+        this.fechaInicio.set(getAnuncioAsociado().getFechaPublicacion());
+    }
+
+    public void setTipoProducto(){
+        this.tipoProducto.set(getAnuncioAsociado().getTipoProducto());
+    }
+
+    public String getTipoProducto(){
+        return tipoProducto.get();
+    }
+
+    public double getValorInicial() {
+        return valorInicial.get();
+    }
+
+    public void setValorInicial() {
+        this.valorInicial.set(getAnuncioAsociado().getValorInicial());
+    }
 }

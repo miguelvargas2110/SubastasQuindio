@@ -61,7 +61,7 @@ public class ControladorAnuncios implements Initializable {
             try {
                 validarFecha(txtFechaFinalizacionAnuncio.getValue());
             }catch (ExcepcionFechaAnuncioInvalida e){
-                ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en Fecha de anuncio" , 1, e.toString());
+                ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en Fecha de anuncio" , 2, e.toString());
                 lblAnuncio.setText("La fecha de finalizacion debe ser mayor a la fecha actual");
                 ok = false;
             }
@@ -70,7 +70,7 @@ public class ControladorAnuncios implements Initializable {
             }
             catch (NumberFormatException e){
                 lblAnuncio.setText("El valor inicial debe estar en numeros");
-                ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en valor inicial" , 1, e.toString());
+                ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en valor inicial" , 2, e.toString());
                 ok = false;
             }
             if(ok){
@@ -78,7 +78,7 @@ public class ControladorAnuncios implements Initializable {
                 ControladorModelFactory.getInstance().guardarAnuncio(anuncio, nombreUsuario);
                 ControladorModelFactory.getInstance().guardarAnuncioArchivo(anuncio, nombreUsuario);
                 lblAnuncio.setText("Se ha publicado el anuncio");
-                ControladorModelFactory.getInstance().guardarRegistroLog("Se ha publicado el anuncio " + txtNombreAnuncio.getText(), 1, "guardarAnuncio");
+                ControladorModelFactory.getInstance().guardarRegistroLog("Se ha publicado el anuncio " + txtNombreAnuncio.getText() + " por el ususario " + ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getNombre(), 1, "guardarAnuncio");
                 this.inicializarTabla();
                 Cancelar();
             }
@@ -95,11 +95,11 @@ public class ControladorAnuncios implements Initializable {
 
         Anuncio anuncioSeleccionado = getTablaAnuncioSeleccionado();
 
-        ControladorModelFactory.getInstance().eliminarAnuncioArchivo(anuncioSeleccionado, nombreUsuario);
+        ControladorModelFactory.getInstance().eliminarAnuncioArchivo(anuncioSeleccionado);
 
         lblAnuncio.setText("Se ha eliminado el anuncio");
 
-        ControladorModelFactory.getInstance().guardarRegistroLog("Se ha eliminado el anuncio " + txtNombreAnuncio.getText(), 1, "eliminarAnuncio");
+        ControladorModelFactory.getInstance().guardarRegistroLog("Se ha eliminado el anuncio " + txtNombreAnuncio.getText() + " por el ususario " + ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getNombre(), 1, "eliminarAnuncio");
 
         this.inicializarTabla();
 
@@ -116,7 +116,7 @@ public class ControladorAnuncios implements Initializable {
                 try {
                     validarFecha(txtFechaFinalizacionAnuncio.getValue());
                 }catch (ExcepcionFechaAnuncioInvalida e){
-                    ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en Fecha de anuncio" , 1, e.toString());
+                    ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en Fecha de anuncio" , 2, e.toString());
                     lblAnuncio.setText("La fecha de finalizacion debe ser mayor a la fecha actual");
                     ok = false;
                 }
@@ -125,14 +125,14 @@ public class ControladorAnuncios implements Initializable {
                 }
                 catch (NumberFormatException e){
                     lblAnuncio.setText("El valor inicial debe estar en numeros");
-                    ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en valor inicial" , 1, e.toString());
+                    ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion en valor inicial" , 2, e.toString());
                     ok = false;
                 }
                 if(ok) {
                     Anuncio anuncio = ControladorModelFactory.getInstance().crearAnuncio(nombreUsuario ,txtNombreAnuncio.getText(), cbTipoProducto.getValue().toString(), txtDescripcionAnuncio.getText(), txtFechaFinalizacionAnuncio.getValue().toString(), Double.valueOf(txtValorInicialAnuncio.getText()));
                     ControladorModelFactory.getInstance().editarAnuncioArchivo(anuncioSeleccionado, anuncio, nombreUsuario);
                     lblAnuncio.setText("Se ha editado el anuncio");
-                    ControladorModelFactory.getInstance().guardarRegistroLog("Se ha editado el anuncio " + txtNombreAnuncio.getText(), 1, "editarAnuncio");
+                    ControladorModelFactory.getInstance().guardarRegistroLog("Se ha editado el anuncio " + txtNombreAnuncio.getText() + " por el ususario " + ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalAnunciante().getNombre(), 1, "editarAnuncio");
                     this.inicializarTabla();
                     Cancelar();
                 }

@@ -1,6 +1,8 @@
 package co.uniquindio.prog3.subastasquindio.controladores;
 
+import co.uniquindio.prog3.subastasquindio.aplicacion.Aplicacion;
 import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionPujaNegativa;
+import co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionUsuarioNoRegistrado;
 import co.uniquindio.prog3.subastasquindio.modelo.Anuncio;
 import co.uniquindio.prog3.subastasquindio.modelo.Puja;
 import javafx.collections.FXCollections;
@@ -10,7 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -18,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControladorTransaccional implements Initializable {
@@ -38,7 +44,7 @@ public class ControladorTransaccional implements Initializable {
     @FXML
     Label lblValorInicial;
     @FXML
-    Label lblSapoHpta;
+    Label lblPuja;
     @FXML
     TextField txtValorPujar;
     @FXML
@@ -48,32 +54,52 @@ public class ControladorTransaccional implements Initializable {
     @FXML
     TableColumn columnaValorPuja;
     ObservableList<Puja> pujas;
+    Stage stage;
+    Aplicacion aplicacion = new Aplicacion();
 
     @FXML
     private void Pujar() throws IOException {
-        if(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
-            try{
-                Double.parseDouble(txtValorPujar.getText());
-                validarValorPuja(Double.parseDouble(txtValorPujar.getText()));
-                Puja puja = ControladorModelFactory.getInstance().crearPuja(Double.parseDouble(txtValorPujar.getText()), ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getNombreAnuncio(), ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre());
-                ControladorModelFactory.getInstance().guardarPuja(puja,  ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getNombreAnuncio());
-                ControladorModelFactory.getInstance().guardarPujaArchivo(puja);
-                lblSapoHpta.setText("Se ha pujado exitosamente");
-                ControladorModelFactory.getInstance().guardarRegistroLog("La puja del comprador " + ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre() + " con valor " + txtValorPujar.getText() + " se ha hecho exitosamente", 1, "guardarPuja");
-                this.inicializarTabla();
-            }catch (ExcepcionPujaNegativa excepcionPujaNegativa){
-                ControladorModelFactory.getInstance().guardarRegistroLog("Ha salado una excepcion de valor menor de valor inicial", 1, excepcionPujaNegativa.toString());
-            }catch (NumberFormatException e){
-                ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion  en el valor de la puja", 1, e.toString());
+        try{
+            validarUsuarioLogueado();
+            Double.parseDouble(txtValorPujar.getText());
+            ControladorModelFactory.getInstance().validarValorPuja(Double.parseDouble(txtValorPujar.getText()), ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getValorInicial());
+            Puja puja = ControladorModelFactory.getInstance().crearPuja(Double.parseDouble(txtValorPujar.getText()), ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getNombreAnuncio(), ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre(), ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal());
+            ControladorModelFactory.getInstance().guardarPuja(puja,  ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getNombreAnuncio());
+            ControladorModelFactory.getInstance().guardarPujaArchivo(puja);
+            lblPuja.setText("Se ha pujado exitosamente");
+            ControladorModelFactory.getInstance().guardarRegistroLog("La puja del comprador " + ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre() + " con valor " + txtValorPujar.getText() + " se ha hecho exitosamente", 1, "guardarPuja");
+            this.inicializarTabla();
+        }catch (ExcepcionPujaNegativa excepcionPujaNegativa){
+            ControladorModelFactory.getInstance().guardarRegistroLog("Ha salado una excepcion de valor menor de valor inicial", 2, excepcionPujaNegativa.toString());
+        }catch (NumberFormatException e){
+            ControladorModelFactory.getInstance().guardarRegistroLog("Ha saltado una excepcion  en el valor de la puja", 2, e.toString());
+        } catch (ExcepcionUsuarioNoRegistrado e) {
+            ControladorModelFactory.getInstance().guardarRegistroLog("El usuario no esta registrado e intento hacer una puja", 2, e.toString());
+            Alert dialogoAlerta = new Alert(Alert.AlertType.CONFIRMATION);
+            dialogoAlerta.setTitle("");
+            dialogoAlerta.setHeaderText("");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            dialogoAlerta.setContentText("Usted no ha iniciado sesion\n¿Quiere iniciar sesion o registarse?");
+            ButtonType btnIniciarSesion = new ButtonType("Iniciar Sesion");
+            ButtonType btnRegistrarse = new ButtonType("Registrarse");
+            ButtonType btnCancelar = new ButtonType("Cancelar");
+            dialogoAlerta.getButtonTypes().setAll(btnRegistrarse, btnIniciarSesion, btnCancelar);
+            Optional<ButtonType> opciones = dialogoAlerta.showAndWait();
+            if(opciones.get() == btnRegistrarse){
+                aplicacion.Registro();
+                stage.close();
+                ControladorModelFactory.getInstance().getSubastasQuindio().getStageMenu1().close();
+            } else if (opciones.get() == btnIniciarSesion) {
+                aplicacion.Login();
+                stage.close();
+                ControladorModelFactory.getInstance().getSubastasQuindio().getStageMenu1().close();
             }
-        }else{
-            lblSapoHpta.setText("Usted no ha iniciado sesion");
         }
     }
 
-    public void validarValorPuja (double valorPuja) throws ExcepcionPujaNegativa {
-        if (valorPuja<ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getValorInicial()){
-            throw new ExcepcionPujaNegativa();
+    private void validarUsuarioLogueado() throws ExcepcionUsuarioNoRegistrado {
+        if(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() == null){
+            throw new ExcepcionUsuarioNoRegistrado();
         }
     }
 
@@ -93,6 +119,8 @@ public class ControladorTransaccional implements Initializable {
     }
 
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lblNombreAnuncio.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getNombreAnuncio());
@@ -104,5 +132,9 @@ public class ControladorTransaccional implements Initializable {
         lblValorInicial.setText("Valor inicial: " + ControladorModelFactory.getInstance().getSubastasQuindio().getAnuncioGlobal().getValorInicial());
 
         this.inicializarTabla();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

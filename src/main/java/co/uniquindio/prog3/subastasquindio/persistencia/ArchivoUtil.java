@@ -1,5 +1,7 @@
 package co.uniquindio.prog3.subastasquindio.persistencia;
 
+import javafx.beans.property.*;
+
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -22,6 +24,8 @@ import java.util.logging.SimpleFormatter;
 public  class ArchivoUtil {
 
     static String fechaSistema = "";
+
+    static String fechaSistemaRespaldo = "";
     /**
      * Este metodo recibe una cadena con el contenido que se quiere guardar en el archivo
      * @param ruta es la ruta o path donde esta ubicado el archivo
@@ -30,6 +34,16 @@ public  class ArchivoUtil {
     public static void guardarArchivo(String ruta,String contenido, Boolean flagAnexarContenido) throws IOException {
 
         FileWriter fw = new FileWriter(ruta,flagAnexarContenido);
+        BufferedWriter bfw = new BufferedWriter(fw);
+        bfw.write(contenido);
+        bfw.close();
+        fw.close();
+    }
+
+    public static void guardarRespaldo(String ruta,String contenido, Boolean flagAnexarContenido) throws IOException {
+
+        cargarFechaSistema();
+        FileWriter fw = new FileWriter(ruta + "copiaXML" + fechaSistema + ".xml",flagAnexarContenido);
         BufferedWriter bfw = new BufferedWriter(fw);
         bfw.write(contenido);
         bfw.close();
@@ -119,6 +133,7 @@ public  class ArchivoUtil {
         int año = cal1.get(Calendar.YEAR);
         int hora = cal1.get(Calendar.HOUR);
         int minuto = cal1.get(Calendar.MINUTE);
+        int segundo = cal1.get(Calendar.SECOND);
 
 
         if(dia < 10){
@@ -135,7 +150,7 @@ public  class ArchivoUtil {
         }
 
         //		fecha_Actual+= año+"-"+mesN+"-"+ diaN;
-        //		fechaSistema = año+"-"+mesN+"-"+diaN+"-"+hora+"-"+minuto;
+        fechaSistemaRespaldo = año+mesN+diaN+"_"+hora+"_"+minuto+"_"+segundo;
         fechaSistema = año+"-"+mesN+"-"+diaN;
         //		horaFechaSistema = hora+"-"+minuto;
     }
@@ -173,6 +188,25 @@ public  class ArchivoUtil {
         return aux;
     }
 
+
+    public static void writeAllProp(ObjectOutputStream s, Property... properties) throws IOException {
+        s.defaultWriteObject();
+        for(Property prop:properties) {
+            if(prop instanceof StringProperty) s.writeUTF(((StringProperty)prop).getValueSafe());
+            else if(prop instanceof BooleanProperty) s.writeBoolean(((BooleanProperty)prop).get());
+            else if(prop instanceof ObjectProperty) s.writeObject(((ObjectProperty) prop).get());
+            else throw new RuntimeException("Type d'objet incompatible : " + prop.toString());
+        }
+    }
+
+    public static void readAllProp(ObjectInputStream s, Property... properties) throws IOException, ClassNotFoundException {
+        for(Property prop:properties) {
+            if(prop instanceof StringProperty) ((StringProperty)prop).setValue(s.readUTF());
+            else if(prop instanceof BooleanProperty) ((BooleanProperty)prop).setValue(s.readBoolean());
+            else if(prop instanceof ObjectProperty) ((ObjectProperty)prop).setValue(s.readObject());
+            else throw new RuntimeException("Unsupported object type : " + prop==null?null:prop.toString());
+        }
+    }
 
     public static void salvarRecursoSerializado(String rutaArchivo, Object object)	throws Exception {
         ObjectOutputStream oos = null;

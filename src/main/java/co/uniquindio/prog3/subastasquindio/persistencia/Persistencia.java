@@ -10,15 +10,15 @@ import java.lang.reflect.AnnotatedArrayType;
 import java.util.ArrayList;
 
 public class Persistencia {
-    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/resources/persistencia/archivoUsuarios.txt";
-    public static final String RUTA_ARCHIVO_ANUNCIOS = "src/main/resources/persistencia/archivoAnuncios.txt";
-
-    public static final String RUTA_ARCHIVO_PUJA = "src/main/resources/persistencia/archivoPujas.txt";
-    public static final String RUTA_ARCHIVO_LOG = "src/main/resources/persistencia/SubastasLog.txt";
+    public static final String RUTA_ARCHIVO_USUARIOS = "src/main/resources/persistencia/archivos/archivoUsuarios.txt";
+    public static final String RUTA_ARCHIVO_ANUNCIOS = "src/main/resources/persistencia/archivos/archivoAnuncios.txt";
+    public static final String RUTA_ARCHIVO_PUJA = "src/main/resources/persistencia/archivos/archivoPujas.txt";
+    public static final String RUTA_ARCHIVO_LOG = "src/main/resources/persistencia/log/SubastasLog.txt";
     public static final String RUTA_ARCHIVO_OBJETOS = "src/main/resources/persistencia/archivoObjetos.txt";
     public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_BINARIO = "src/main/resources/persistencia/model.dat";
     public static final String RUTA_ARCHIVO_MODELO_SUBASTASQUINDIO_XML = "src/main/resources/persistencia/model.xml";
-    private static final String RUTA_ARCHIVO_PROPERTIES_MODALIDADES = "src/main/resources/persistencia/tipoProducto.properties";
+    private static final String RUTA_ARCHIVO_PROPERTIES_TIPOPRODUCTO = "src/main/resources/persistencia/archivos/tipoProducto.properties";
+    private static final String RUTA_ARCHIVO_RESPALDO = "src/main/resources/persistencia/respaldo/";
 
     public static void cargarDatosArchivos(SubastasQuindio subastasQuindio) throws FileNotFoundException, IOException {
 
@@ -28,10 +28,10 @@ public class Persistencia {
 
         ArrayList<Anuncio> anunciosCargados = cargarAnuncios();
 
-        if(usuariosCargados.size() > 0)
+        if(usuariosCargados != null  && usuariosCargados.size() > 0)
             subastasQuindio.getListaUsuarios().addAll(usuariosCargados);
 
-        if(anunciosCargados.size() > 0)
+        if(anunciosCargados != null && anunciosCargados.size() > 0)
             subastasQuindio.getListaAnuncios().addAll(anunciosCargados);
         /*cargar archivos empleados
         ArrayList<Empleado> empleadosCargados = cargarEmpleados();
@@ -47,10 +47,6 @@ public class Persistencia {
 
     }
 
-
-
-
-
     /**
      * Guarda en un archivo de texto todos la información de las personas almacenadas en el ArrayList
      * @param listaUsuarios
@@ -63,9 +59,9 @@ public class Persistencia {
         for(Usuario usuario:listaUsuarios)
         {
             if(usuario.getClass().getSimpleName().equals("Comprador")){
-                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Comprador," + listaUsuarios.indexOf(usuario) + "\n";
+                contenido += usuario.getNombre()+"@@"+usuario.getCorreo()+"@@"+usuario.getContrasena()+"@@Comprador@@" + listaUsuarios.indexOf(usuario) + "\n";
             }else{
-                contenido += usuario.getNombre()+","+usuario.getCorreo()+","+usuario.getContrasena()+",Anunciante," + listaUsuarios.indexOf(usuario) + "\n";
+                contenido += usuario.getNombre()+"@@"+usuario.getCorreo()+"@@"+usuario.getContrasena()+"@@Anunciante@@" + listaUsuarios.indexOf(usuario) + "\n";
             }
 
         }
@@ -78,8 +74,8 @@ public class Persistencia {
         String contenido = "";
 
         for(Anuncio anuncio: listaAnuncios){
-            contenido += anuncio.getNombreAnunciante()+","+anuncio.getNombreAnuncio()+","+anuncio.getTipoProducto()+","+anuncio.getDescripcion()+","+
-                    anuncio.getFechaPublicacion()+","+anuncio.getFechaCaducidad()+","+anuncio.getValorInicial()+","+
+            contenido += anuncio.getNombreAnunciante()+"@@"+anuncio.getNombreAnuncio()+"@@"+anuncio.getTipoProducto()+"@@"+anuncio.getDescripcion()+"@@"+
+                    anuncio.getFechaPublicacion()+"@@"+anuncio.getFechaCaducidad()+"@@"+anuncio.getValorInicial()+"@@"+
                     anuncio.getEstadoAnuncio()+"\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
@@ -90,7 +86,7 @@ public class Persistencia {
         String contenido = "";
 
         for(Puja puja: listaPujas){
-            contenido += puja.getNombreComprador()+","+puja.getValorPuja()+"," + puja.getNombreAnuncio()+ "\n";
+            contenido += puja.getNombreComprador()+"@@"+puja.getValorPuja()+"@@" + puja.getNombreAnuncio()+ "\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_PUJA, contenido, false);
 
@@ -100,7 +96,7 @@ public class Persistencia {
 
     public static ArrayList<String> cargarTipoProductosProperties() throws IOException {
 
-        ArrayList<String> tipoProductos = ArchivoUtil.leerProperties(RUTA_ARCHIVO_PROPERTIES_MODALIDADES);
+        ArrayList<String> tipoProductos = ArchivoUtil.leerProperties(RUTA_ARCHIVO_PROPERTIES_TIPOPRODUCTO);
 
         return tipoProductos;
 
@@ -121,21 +117,21 @@ public class Persistencia {
         for (int i = 0; i < contenido.size(); i++)
         {
             linea = contenido.get(i);
-            if(linea.split(",")[3].equals("Anunciante")){
+            if(linea.split("@@")[3].equals("Anunciante")){
                 Anunciante anunciante = new Anunciante();
                 ArrayList<Anuncio> anuncios = new ArrayList<>();
-                anunciante.setNombre(linea.split(",")[0]);
-                anunciante.setCorreo(linea.split(",")[1]);
-                anunciante.setContrasena(linea.split(",")[2]);
+                anunciante.setNombre(linea.split("@@")[0]);
+                anunciante.setCorreo(linea.split("@@")[1]);
+                anunciante.setContrasena(linea.split("@@")[2]);
                 anuncios = cargarAnunciosUsuario(anunciante);
                 anunciante.setAnuncios(anuncios);
                 usuarios.add(anunciante);
             }else{
                 Comprador comprador = new Comprador();
                 ArrayList<Puja> pujas = new ArrayList<>();
-                comprador.setNombre(linea.split(",")[0]);
-                comprador.setCorreo(linea.split(",")[1]);
-                comprador.setContrasena(linea.split(",")[2]);
+                comprador.setNombre(linea.split("@@")[0]);
+                comprador.setCorreo(linea.split("@@")[1]);
+                comprador.setContrasena(linea.split("@@")[2]);
                 pujas = cargarPujasUsuario(comprador);
                 comprador.setPujas(pujas);
                 usuarios.add(comprador);
@@ -157,14 +153,14 @@ public class Persistencia {
                 linea = contenido.get(i);
                 Anuncio anuncio = new Anuncio();
                 ArrayList<Puja> pujas = new ArrayList<>();
-                anuncio.setNombreAnunciante(linea.split(",")[0]);
-                anuncio.setNombreAnuncio(linea.split(",")[1]);
-                anuncio.setTipoProducto(linea.split(",")[2]);
-                anuncio.setDescripcion(linea.split(",")[3]);
-                anuncio.setFechaPublicacion(linea.split(",")[4]);
-                anuncio.setFechaCaducidad(linea.split(",")[5]);
-                anuncio.setValorInicial(Double.parseDouble(linea.split(",")[6]));
-                anuncio.setEstadoAnuncio(Boolean.parseBoolean(linea.split(",")[7]));
+                anuncio.setNombreAnunciante(linea.split("@@")[0]);
+                anuncio.setNombreAnuncio(linea.split("@@")[1]);
+                anuncio.setTipoProducto(linea.split("@@")[2]);
+                anuncio.setDescripcion(linea.split("@@")[3]);
+                anuncio.setFechaPublicacion(linea.split("@@")[4]);
+                anuncio.setFechaCaducidad(linea.split("@@")[5]);
+                anuncio.setValorInicial(Double.parseDouble(linea.split("@@")[6]));
+                anuncio.setEstadoAnuncio(Boolean.parseBoolean(linea.split("@@")[7]));
                 pujas = cargarPujasAnuncio(anuncio);
                 anuncio.setPujas(pujas);
                 anuncios.add(anuncio);
@@ -180,15 +176,33 @@ public class Persistencia {
 
         ArrayList<Puja> pujas = new ArrayList<>();
 
+
         try {
             ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_PUJA);
             String linea = "";
+            ArrayList<String> contenidoAnuncios = ArchivoUtil.leerArchivo((RUTA_ARCHIVO_ANUNCIOS));
+            String lineaAnuncio = "";
             for (int i = 0; i < contenido.size(); i++){
                 linea = contenido.get(i);
                 Puja puja = new Puja();
-                puja.setNombreComprador(linea.split(",")[0]);
-                puja.setValorPuja(Double.parseDouble(linea.split(",")[1]));
-                puja.setNombreAnuncio(linea.split(",")[2]);
+                puja.setNombreComprador(linea.split("@@")[0]);
+                puja.setValorPuja(Double.parseDouble(linea.split("@@")[1]));
+                puja.setNombreAnuncio(linea.split("@@")[2]);
+                for(int j = 0; j < contenidoAnuncios.size();j++){
+                    lineaAnuncio = contenidoAnuncios.get(j);
+                    if(puja.getNombreAnuncio().equals(lineaAnuncio.split("@@")[1])){
+                        Anuncio anuncio = new Anuncio();
+                        anuncio.setNombreAnunciante(lineaAnuncio.split("@@")[0]);
+                        anuncio.setNombreAnuncio(lineaAnuncio.split("@@")[1]);
+                        anuncio.setTipoProducto(lineaAnuncio.split("@@")[2]);
+                        anuncio.setDescripcion(lineaAnuncio.split("@@")[3]);
+                        anuncio.setFechaPublicacion(lineaAnuncio.split("@@")[4]);
+                        anuncio.setFechaCaducidad(lineaAnuncio.split("@@")[5]);
+                        anuncio.setValorInicial(Double.parseDouble(lineaAnuncio.split("@@")[6]));
+                        anuncio.setEstadoAnuncio(Boolean.parseBoolean(lineaAnuncio.split("@@")[7]));
+                        puja.setAnuncioAsociado(anuncio);
+                    }
+                }
                 pujas.add(puja);
             }
             return pujas;
@@ -282,7 +296,7 @@ public class Persistencia {
         String contenido = "";
 
         for(Usuario usuarioAux:listaUsuarios) {
-            contenido+= usuarioAux.getNombre()+","+usuarioAux.getCorreo()+","+usuarioAux.getContrasena()+"\n";
+            contenido+= usuarioAux.getNombre()+"@@"+usuarioAux.getCorreo()+"@@"+usuarioAux.getContrasena()+"\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_OBJETOS , contenido, true);
     }
@@ -341,6 +355,31 @@ public class Persistencia {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+    }
+
+    public static void guardarRespaldoSubastasQuindioXML(){
+
+        SubastasQuindio subastasQuindio = new SubastasQuindio();
+        ArchivoUtil.cargarFechaSistema();
+
+        if(cargarRecursoSubastasQuindioXML() == null){
+            guardarRecursoSubastasQuindioXML(subastasQuindio);
+            subastasQuindio = cargarRecursoSubastasQuindioXML();
+            try {
+                ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_RESPALDO + "copiaXML" + ArchivoUtil.fechaSistemaRespaldo + ".xml", subastasQuindio);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else{
+            subastasQuindio = cargarRecursoSubastasQuindioXML();
+            try {
+                ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_RESPALDO + "copiaXML" + ArchivoUtil.fechaSistemaRespaldo + ".xml", subastasQuindio);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
     }
 }

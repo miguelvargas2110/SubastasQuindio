@@ -42,7 +42,7 @@ public class ControladorLogin {
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ExcepcionUsuario e) {
-            ControladorModelFactory.getInstance().guardarRegistroLog("El ususario no esta registrado", 1, e.toString());
+            ControladorModelFactory.getInstance().guardarRegistroLog("El usuario no esta registrado", 2, e.toString());
         }
     }
 }

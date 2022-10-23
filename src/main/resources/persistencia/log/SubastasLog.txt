@@ -1,0 +1,6 @@
+oct 23, 2022 11:44:53 A. M. co.uniquindio.prog3.subastasquindio.persistencia.ArchivoUtil guardarRegistroLog
+ADVERTENCIA: co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionArrobaEmail,Ha saltado una excepcion en email,2022-10-23
+oct 23, 2022 11:44:53 A. M. co.uniquindio.prog3.subastasquindio.persistencia.ArchivoUtil guardarRegistroLog
+ADVERTENCIA: co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionNombreUsuarioInvalido,Ha saltado una excepcion en nombre de usuario,2022-10-23
+oct 23, 2022 11:44:53 A. M. co.uniquindio.prog3.subastasquindio.persistencia.ArchivoUtil guardarRegistroLog
+ADVERTENCIA: co.uniquindio.prog3.subastasquindio.excepciones.ExcepcionContraseña,Ha saltado una excepcion en contraseña,2022-10-23
