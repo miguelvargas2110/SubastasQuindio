@@ -97,33 +97,6 @@ public class Aplicacion extends Application {
         }
     }
 
-    public void Usuarios(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/Usuarios.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setTitle("Usuarios");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void MenuLogeado(){
-        FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("/vistas/MenuLogueado.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setTitle("Usuarios");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
     public static void main(String[] args) {
         launch();
     }

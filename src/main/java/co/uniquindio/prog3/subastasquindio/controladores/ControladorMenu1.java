@@ -157,8 +157,6 @@ public class ControladorMenu1 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Persistencia.guardarRespaldoSubastasQuindioXML();
-
         if(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador() != null){
             lblNombreUsuario.setText(ControladorModelFactory.getInstance().getSubastasQuindio().getUsuarioGlobalComprador().getNombre());
             btnNombreCrud.setText("Pujas");

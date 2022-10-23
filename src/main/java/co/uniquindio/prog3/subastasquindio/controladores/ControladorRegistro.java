@@ -33,7 +33,7 @@ public class ControladorRegistro {
 
     @FXML private void crearCliente() throws IOException {
 
-        if (nombreUsuario.getText() != "" || contrasenaUsuario.getText() != "" || contrasenaUsuario.getText() != "" && !rbAnunciante.isSelected() && !rbComprador.isSelected()) {
+        if (nombreUsuario.getText() != "" && contrasenaUsuario.getText() != "" && contrasenaUsuario.getText() != "" && !rbAnunciante.isSelected() && !rbComprador.isSelected()) {
             boolean ok = true;
             if(rbAnunciante.isSelected()){
                 try {

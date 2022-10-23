@@ -18,8 +18,8 @@ public class ControladorModelFactory {
 
 
     //------------------------------  Singleton ------------------------------------------------
-    public static ControladorModelFactory getInstance(){
-        if(instancia == null){
+    public static ControladorModelFactory getInstance() {
+        if (instancia == null) {
             instancia = new ControladorModelFactory();
         }
         return instancia;
@@ -27,16 +27,17 @@ public class ControladorModelFactory {
 
     private ControladorModelFactory() {
 
+        Persistencia.guardarRespaldoSubastasQuindioXML();
 
         cargarDatosDesdeArchivos();
 
-        if(Persistencia.cargarRecursoSubastasQuindioXML() == null) {
+        if (Persistencia.cargarRecursoSubastasQuindioXML() == null) {
             System.out.println("es null");
             guardarResourceXML();
             cargarResourceXML();
             guardarResourceBinario();
             //cargarResourceBinario();
-        }else{
+        } else {
             //cargarResourceBinario();
             cargarResourceXML();
             guardarResourceBinario();
@@ -47,8 +48,8 @@ public class ControladorModelFactory {
 
     }
 
-   public void guardarRegistroLog(String mensaje, int nivel, String accion){
-       Persistencia.guardaRegistroLog(mensaje, nivel, accion);
+    public void guardarRegistroLog(String mensaje, int nivel, String accion) {
+        Persistencia.guardaRegistroLog(mensaje, nivel, accion);
     }
 
     private void cargarDatosDesdeArchivos() {
@@ -88,21 +89,23 @@ public class ControladorModelFactory {
     public SubastasQuindio getSubastasQuindio() {
         return subastasQuindio;
     }
+
+    //
+    public void setUniversidad(SubastasQuindio subastasQuindio) {
+        this.subastasQuindio = subastasQuindio;
+    }
+
+    //
 //
-public void setUniversidad(SubastasQuindio subastasQuindio) {
-       this.subastasQuindio = subastasQuindio;
-}
-//
-//
-   public Usuario crearAnunciante(String nombre, String correo, String contrasena) {
+    public Usuario crearAnunciante(String nombre, String correo, String contrasena) {
 
-       Usuario usuario;
+        Usuario usuario;
 
-       usuario = getSubastasQuindio().crearAnunciante(nombre, correo, contrasena);
+        usuario = getSubastasQuindio().crearAnunciante(nombre, correo, contrasena);
 
-       return usuario;
+        return usuario;
 
-   }
+    }
 
     public Usuario crearComprador(String nombre, String correo, String contrasena) {
 
@@ -132,7 +135,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public Anuncio crearAnuncio(String nombreAnunciante,String nombreAnuncio, String tipoProducto, String descripcion, String fechaCaducidad, Double valorInicial) {
+    public Anuncio crearAnuncio(String nombreAnunciante, String nombreAnuncio, String tipoProducto, String descripcion, String fechaCaducidad, Double valorInicial) {
 
         Anuncio anuncio;
 
@@ -151,7 +154,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public void editarAnuncioArchivo (Anuncio anuncio, Anuncio anuncioMod, String nombre) throws IOException {
+    public void editarAnuncioArchivo(Anuncio anuncio, Anuncio anuncioMod, String nombre) throws IOException {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
         subastasQuindio.getListaAnuncios().add(anuncioMod);
@@ -163,7 +166,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
 
-    public void eliminarAnuncioArchivo (Anuncio anuncio) throws IOException {
+    public void eliminarAnuncioArchivo(Anuncio anuncio) throws IOException {
 
         subastasQuindio.getListaAnuncios().remove(anuncio);
 
@@ -174,7 +177,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
 
-    public void usuarioLogeado(String correo, String contrasena){
+    public void usuarioLogeado(String correo, String contrasena) {
 
         getSubastasQuindio().usuarioLogeado(correo, contrasena);
 
@@ -205,7 +208,7 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public void guardarPuja(Puja puja, String nombreAnuncio){
+    public void guardarPuja(Puja puja, String nombreAnuncio) {
         ControladorModelFactory.getInstance().getSubastasQuindio().guardarPuja(puja, nombreAnuncio);
     }
 
@@ -219,8 +222,8 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
     }
 
-    public void validarValorPuja (double valorPuja, double valorInicial) throws ExcepcionPujaNegativa {
-        if (valorPuja < valorInicial){
+    public void validarValorPuja(double valorPuja, double valorInicial) throws ExcepcionPujaNegativa {
+        if (valorPuja < valorInicial) {
             throw new ExcepcionPujaNegativa();
         }
     }
@@ -232,23 +235,4 @@ public void setUniversidad(SubastasQuindio subastasQuindio) {
 
         Persistencia.guardarRecursoSubastasQuindioXML(subastasQuindio);
     }
-
-//
-//    public Programa crearPrograma(String nombre, String documento, String modalidad){
-//        Programa programa;
-//        programa = getUniversidad().crearPrograma(nombre, documento, modalidad);
-//        return programa;
-//    }
-//
-//    public Estudiante buscarEstudiante(String codigo) {
-//        Estudiante estudiante = getUniversidad().buscarEstudiante(codigo);
-//        return estudiante;
-//    }
-//
-//    public Programa buscarPrograma(String codigo) {
-//        Programa programa = getUniversidad().buscarPrograma(codigo);
-//        return programa;
-//    }
-//
 }
-

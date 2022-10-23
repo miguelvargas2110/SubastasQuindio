@@ -28,16 +28,13 @@ public class ControladorLogin {
     public void onActionLogin() {
 
         try {
-            ControladorModelFactory.getInstance().getSubastasQuindio().setUsuarioGlobalComprador(null);
-            ControladorModelFactory.getInstance().getSubastasQuindio().setUsuarioGlobalAnunciante(null);
             iniciarSesion(correoUsuario.getText(), contrasenaUsuario.getText());
             ControladorModelFactory.getInstance().usuarioLogeado(correoUsuario.getText(), contrasenaUsuario.getText());
             ControladorModelFactory.getInstance().guardarRegistroLog("El usuario con correo " + correoUsuario.getText() + " ha iniciado sesion", 1, "iniciarSesion");
 
             ControladorModelFactory.getInstance().getSubastasQuindio().getStageMenu1().close();
-            aplicacion.start(ControladorModelFactory.getInstance().subastasQuindio.getStageMenu1());
             stage.close();
-
+            aplicacion.start(ControladorModelFactory.getInstance().subastasQuindio.getStageMenu1());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
